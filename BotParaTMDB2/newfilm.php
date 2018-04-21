@@ -1,3 +1,4 @@
+
 <section id="contact" class="s-contact target-section"
 		data-parallax="scroll"
 		data-image-src="images/bg/<?php echo $n[1]; ?>"
