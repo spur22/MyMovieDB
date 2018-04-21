@@ -113,7 +113,7 @@ $n=$a->ordenaraleatorio();
 		<div class="row section-header has-bottom-sep" data-aos="fade-up">
 			<div class="col-full">
 				<h3 class="subhead subhead--dark">MOST SEEN</h3>
-				<h1 class="display-1 display-1--light">ACTORS</h1>
+				<h1 class="display-1 display-1--light">hola</h1>
 			</div>
 		</div>
 		<!-- end section-header -->
