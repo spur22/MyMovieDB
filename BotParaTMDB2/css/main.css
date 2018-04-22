@@ -2400,6 +2400,39 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#16998c', end
 	text-transform: uppercase
 }
 
+.debajoimagen4 {
+	text-align: left;
+    font-family: "montserrat-bold", sans-serif;
+    font-size: 1.3rem;
+    line-height: 1;
+    color: #FFFFFF;
+    position: relative;
+	text-transform: uppercase
+}
+
+.salchicon {
+	text-align: center;
+    font-family: "montserrat-bold", sans-serif;
+    font-size: 22px;
+    line-height: 1;
+    color: #FFFFFF;
+    position: relative;
+	text-transform: uppercase
+}
+
+.overimage {
+	    font-family: "montserrat-medium", sans-serif;
+    color: #fff;
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+    font-size: 1.3rem;
+    line-height: 1.385;
+    text-transform: uppercase;
+    letter-spacing: .16rem;
+	padding-bottom: 20px;
+}
+
 .stats__count {
 	text-align: center;
     font-family: "montserrat-bold", sans-serif;
@@ -3137,7 +3170,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#16998c', end
  * # contact 
  *
  * ------------------------------------------------------------------- */
-.s-contact {
+.s-contact {16998c
     padding-top: 15rem;
     padding-bottom: 12rem;
     color: rgba(255, 255, 255, 0.5);
@@ -3173,13 +3206,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#16998c', end
     right: .6rem;
     text-transform: uppercase;
     letter-spacing: .1rem;
-    padding: 0 2rem;
+    padding: 10px 2rem;
     margin: 0;
     color: #FFFFFF;
     background: #16998c;
 }
 
 .s-contact .form-field label::after {
+	
     content: "";
     position: absolute;
     left: -5px;
