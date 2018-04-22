@@ -10,7 +10,7 @@ include_once "utilidades.php";
 $bd = new BaseDeDatos();
 $a = new Utilidades();
 
-$n=$a->ordenaraleatorio();
+$n = $a->ordenaraleatorio();
 
 ?>
 <html class="no-js" lang="en">
@@ -39,7 +39,7 @@ $n=$a->ordenaraleatorio();
 <!-- script
     ================================================== -->
 <script src="js/modernizr.js"></script>
-<script src="js/pace.min.js"></script> 
+<script src="js/pace.min.js"></script>
 
 <!-- favicons
     ================================================== -->
@@ -66,8 +66,9 @@ $n=$a->ordenaraleatorio();
 	<!-- home
     ================================================== -->
 	<section id="home" class="s-home target-section" data-parallax="scroll"
-		data-image-src="images/bg/<?php echo $n[0]; ?>" data-natural-width=1920
-		data-natural-height=1080 data-position-y=center>
+		data-image-src="images/bg/<?php echo $n[0]; ?>"
+		data-natural-width=1920 data-natural-height=1080
+		data-position-y=center>
 
 		<div class="overlay"></div>
 		<div class="shadow-overlay"></div>
@@ -76,10 +77,23 @@ $n=$a->ordenaraleatorio();
 
 			<div class="row home-content__main">
 				<table>
-<tr>  <th><h2><a class="smoothscroll"  href="#diary" title="Diary"><i class="ion-calendar"></i></a></h2></th>  
-	  <th><h2><a class="smoothscroll"  href="#contact" title="Search"><i class="ion-search"></i></a></h2></th>
-	  <th><h2><a class="smoothscroll"  href="#add" title="Add"><i class="ion-plus-round"></i></a></h2></th>  
-	  <th><h2><a class="smoothscroll"  href="#statis" title="Stats"><i class="ion-stats-bars"></i></a></h2></th>
+					<tr>
+						<th><h2>
+								<a class="smoothscroll" href="#diary" title="Diary"><i
+									class="ion-calendar"></i></a>
+							</h2></th>
+						<th><h2>
+								<a class="smoothscroll" href="#contact" title="Search"><i
+									class="ion-search"></i></a>
+							</h2></th>
+						<th><h2>
+								<a class="smoothscroll" href="#add" title="Add"><i
+									class="ion-plus-round"></i></a>
+							</h2></th>
+						<th><h2>
+								<a class="smoothscroll" href="#statis" title="Stats"><i
+									class="ion-stats-bars"></i></a>
+							</h2></th>
 					</tr>
 				</table>
 
@@ -113,7 +127,7 @@ $n=$a->ordenaraleatorio();
 		<div class="row section-header has-bottom-sep" data-aos="fade-up">
 			<div class="col-full">
 				<h3 class="subhead subhead--dark">MOST SEEN</h3>
-				<h1 class="display-1 display-1--light">adios</h1>
+				<h1 class="display-1 display-1--light">ACTOR</h1>
 			</div>
 		</div>
 		<!-- end section-header -->
@@ -142,7 +156,8 @@ $n=$a->ordenaraleatorio();
 			</div>
 		</div>
 		<!-- end diary-desc -->
-		<br><br>
+		<br>
+		<br>
 		<div class="row section-header has-bottom-sep" data-aos="fade-up">
 			<div class="col-full">
 				<h3 class="subhead subhead--dark">MOST SEEN</h3>

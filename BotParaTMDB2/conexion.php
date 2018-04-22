@@ -2,6 +2,8 @@
 include_once "utilidades.php";
 class BaseDeDatos extends mysqli
 {
+    //TODO cambiar el formulario de search de newfilm.php, añadir urlencode 
+    //TODO añadir en utilidades.php un metodo addslashes de array para devolver un array con slashes
 
     private $ut;
     
@@ -80,11 +82,11 @@ class BaseDeDatos extends mysqli
     public function insertarpelicula($id, $arraymovie, $tituloES)
     {
         $año = explode('-', $arraymovie["release_date"])[0];
-        $titulo_original = $arraymovie["original_title"];
+        $titulo_original = addslashes($arraymovie["original_title"]);
         $duracion = $arraymovie["runtime"];
-        $pais = $arraymovie["production_countries"][0]["name"];
+        $pais = addslashes($arraymovie["production_countries"][0]["name"]);
         $poster=$arraymovie["poster_path"];
-        $tagline=$arraymovie["tagline"];
+        $tagline=addslashes($arraymovie["tagline"]);
         for ($i = 0; $i < count($arraymovie); $i ++) {
             $this->query("INSERT INTO titulopelicula (id_pelicula, año, titulo, titulo_original, poster, tagline, duracion, pais) VALUES ('" . $id . "', '" . $año . "', '".$tituloES."', '" . $titulo_original . "', '".$poster."', '".$tagline."', '" . $duracion . "', '" . $pais . "')");
         }

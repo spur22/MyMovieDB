@@ -52,13 +52,19 @@ class Utilidades
         return $this->imagenpais($pais);
     }
 
-    public function sexo($sexo)
+    public function sexo($sexo, $solosimbolo)
     {
         if ($sexo == 2) {
-            ?> male
+            if (! $solosimbolo) {
+                echo "male";
+            }
+            ?>
 <i class="ion-male"></i><?php
         } else if ($sexo == 1) {
-            ?> female
+            if (! $solosimbolo) {
+                echo "female";
+            }
+            ?>
 <i class="ion-female"></i><?php
         } else {
             ?> - <?php

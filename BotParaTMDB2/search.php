@@ -6,11 +6,11 @@
 include_once "conexion.php";
 include_once "utilidades.php";
 
-
 class Search
 {
 
     private $bd;
+
     private $ut;
 
     public function __construct()
@@ -21,7 +21,6 @@ class Search
 
     public function tablabusqueda($tr1, $tr2, $elemento, $tipo)
     {
-        
         $consulta = "";
         switch ($tipo) {
             case 1:
@@ -31,7 +30,7 @@ class Search
                 $consulta = "SELECT id_persona,nombre_persona,sexo FROM persona WHERE nombre_persona LIKE '%" . $elemento . "%' or nombre_persona LIKE '" . $elemento . "' GROUP BY id_persona LIMIT 20";
                 break;
         }
-       
+        
         if ($this->bd->buscarsiexiste($consulta) >= 1) {
             ?>
 <table>
@@ -44,12 +43,13 @@ class Search
 	<tbody>
 	        <?php
             
-	        $cont = $this->bd->query($consulta);
+            $cont = $this->bd->query($consulta);
             
             while ($rows = $cont->fetch_array()) {
                 ?>
 		<tr>
-			<td class="one"><a href="<?php if ($tipo==1) {echo "film"; }else{ echo "person"; } ?>.php?id=<?php echo $rows[0]; ?>"
+			<td class="one"><a
+				href="<?php if ($tipo==1) {echo "film"; }else{ echo "person"; } ?>.php?id=<?php echo $rows[0]; ?>"
 				class="three"><?php echo $rows[1] ?></a></td>
 			<td class="one"><?php if ($tipo==2){$this->ut->sexo($rows[2], true);}else{echo $rows[2];} ?></td>
 		</tr>
@@ -127,11 +127,12 @@ class Search
 			<div class="row home-content__main">
 				<?php
     
-                     $bus = new Search();
+    $bus = new Search();
     ?>
 					<br> <br>
 					<?php $bus->tablabusqueda("Film", "Released", $_GET["search"], 1); ?>
-				<br><br>
+				<br>
+				<br>
 	<?php $bus->tablabusqueda("Cast", "Gender", $_GET["search"], 2); ?>
 
 			</div>
