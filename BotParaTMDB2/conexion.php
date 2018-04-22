@@ -73,6 +73,17 @@ class BaseDeDatos extends mysqli
         return $this->mostrararray($datos);
     }
     
+    public function peliculasdeactor($idactor){
+        $datos=array();
+        $cont=$this->query("SELECT titulopelicula.id_pelicula,titulo_original FROM titulopelicula,peliculasactores WHERE titulopelicula.id_pelicula=peliculasactores.id_pelicula and id_actor=".$idactor);
+        
+        while ($rows = $cont->fetch_assoc()) {
+            array_push($datos,"<a class='one' href=film.php?id=".$rows["id_pelicula"].">".$rows["titulo_original"]."</a>");
+        }
+        
+        return $this->mostrararray($datos);
+    }
+    
     public function mostrararray($array)
     {
         $final = implode(', ', $array);
@@ -88,7 +99,7 @@ class BaseDeDatos extends mysqli
         $poster=$arraymovie["poster_path"];
         $tagline=addslashes($arraymovie["tagline"]);
         for ($i = 0; $i < count($arraymovie); $i ++) {
-            $this->query("INSERT INTO titulopelicula (id_pelicula, año, titulo, titulo_original, poster, tagline, duracion, pais) VALUES ('" . $id . "', '" . $año . "', '".$tituloES."', '" . $titulo_original . "', '".$poster."', '".$tagline."', '" . $duracion . "', '" . $pais . "')");
+            $this->query("INSERT INTO titulopelicula (id_pelicula, año, titulo, titulo_original, poster, tagline, duracion, pais) VALUES ('" . $id . "', '" . $año . "', '".addslashes($tituloES)."', '" . $titulo_original . "', '".$poster."', '".$tagline."', '" . $duracion . "', '" . $pais . "')");
         }
     }
 
@@ -136,7 +147,7 @@ class BaseDeDatos extends mysqli
 
 
 
-    public function pasar($link, $fecha, $rewatch)
+    public function pasar($link, $fecha, $rewatch, $medio)
     {
         $directores = array();
         $guionistas = array();
@@ -153,7 +164,10 @@ class BaseDeDatos extends mysqli
         $id = explode('/', $urltmdb)[4];
         
         if ($this->buscarsiexiste("SELECT * FROM titulopelicula WHERE id_pelicula=" . $id) < 1) {
-            // Si está introducida previamente hace esto
+            
+            echo "<strong>Esta película no existía y fue introducida</strong>";
+            
+            // Si no está introducida previamente hace esto
             
             $arraymovie = $this->ut->htmltojson("https://api.themoviedb.org/3/movie/" . $id . "?api_key=3f533c5423eaf11962eb53403fccff33");
             
@@ -202,18 +216,18 @@ class BaseDeDatos extends mysqli
             $this->insertarpersonas("peliculasmusicos", $musicos, $id);
         }
         // Si no, no es necesario meterla y hace esto
-        $this->query("INSERT INTO fechastitulos (fecha, id_titulo, rewatch) VALUES ('" . $fecha . "', '" . $id . "', '" . $rewatch . "')");
+        $this->query("INSERT INTO fechastitulos (fecha, id_titulo, rewatch, medio) VALUES ('" . $fecha . "', '" . $id . "', '" . $rewatch . "', '".$medio."')");
     }
     
     
     public function ranking($tabla, $id_tabla,$plus){
 
         
-        $cons = $this->query("SELECT *,COUNT(*) as con FROM persona,titulopelicula,".$tabla." WHERE persona.id_persona=".$tabla.".".$id_tabla." and titulopelicula.id_pelicula=".$tabla.".id_pelicula ".$plus." GROUP BY persona.id_persona ORDER BY con DESC LIMIT 10");
+        $cons = $this->query("SELECT *,COUNT(*) as con FROM persona,fechastitulos,titulopelicula,".$tabla." WHERE fechastitulos.id_titulo=titulopelicula.id_pelicula and persona.id_persona=".$tabla.".".$id_tabla." and titulopelicula.id_pelicula=".$tabla.".id_pelicula ".$plus." and YEAR(fecha)=2018 GROUP BY persona.id_persona ORDER BY con DESC LIMIT 10");
         while ($rows = $cons->fetch_assoc()) {
           ?>
                             <tr>
-								<td><?php echo $rows["nombre_persona"] ?></td>
+								<td><a href="person.php?id=<?php echo $rows["id_persona"] ?>"><?php echo $rows["nombre_persona"] ?></a></td>
 								<td><?php echo $rows["con"] ?></td>
 							</tr>
 <?php }

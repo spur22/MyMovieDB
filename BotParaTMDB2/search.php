@@ -17,6 +17,8 @@ class Search
     {
         $this->bd = new BaseDeDatos();
         $this->ut = new Utilidades();
+        
+       
     }
 
     public function tablabusqueda($tr1, $tr2, $elemento, $tipo)
@@ -112,28 +114,32 @@ class Search
 	</header>
 	<!-- end s-header -->
 
-
+				<?php
+    
+    $ut = new Utilidades();
+    ?>
 	<!-- home
     ================================================== -->
 	<section id="home" class="s-home target-section" data-parallax="scroll"
-		data-image-src="images/bg/songtosong.jpg" data-natural-width=1920
+		data-image-src="images/bg/<?php echo $ut->ordenaraleatorio()[0];   ?>" data-natural-width=1920
 		data-natural-height=1080 data-position-y=center>
 
 		<div class="overlay"></div>
 		<div class="shadow-overlay"></div>
 
-		<div class="home-content">
-
-			<div class="row home-content__main">
 				<?php
     
     $bus = new Search();
     ?>
+		<div class="home-content">
+
+			<div class="row home-content__main">
+
 					<br> <br>
 					<?php $bus->tablabusqueda("Film", "Released", $_GET["search"], 1); ?>
 				<br>
 				<br>
-	<?php $bus->tablabusqueda("Cast", "Gender", $_GET["search"], 2); ?>
+	<?php $bus->tablabusqueda("Person", "Gender", $_GET["search"], 2); ?>
 
 			</div>
 			<!-- end home-content -->

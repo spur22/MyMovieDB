@@ -118,9 +118,7 @@ $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . 
 					<div class="debajoimagen3"><?php $ut->sexo($datos["gender"], false); ?></div>
 					<br>
 					<div class="debajoimagen2">known for:</div>
-					<div class="debajoimagen3">fight club, inglorious basterds, se7en,
-						world war z, fury, 12 years a slave, ocean's eleven, the curious
-						case of benjamin button</div>
+					<div class="debajoimagen3"><?php echo $bd->peliculasdeactor($_GET["id"]); ?></div>
 					<br>
 					<div class="debajoimagen2">you've watched:</div>
 					<div class="debajoimagen3">
@@ -149,10 +147,10 @@ $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . 
 			<div class="contactis-secondary">
 				<div class="contactis-info">
 					<p>
-						<img src=https://image.tmdb.org/t/p/w500
-							<?php echo $datos["profile_path"]  ?>
-							srcset=https://image.tmdb.org/t/p/w500
-							<?php echo $datos["profile_path"]  ?>, 
+						<img src="https://image.tmdb.org/t/p/w500
+							<?php echo $datos["profile_path"]  ?>"
+							srcset="https://image.tmdb.org/t/p/w500
+							<?php echo $datos["profile_path"]  ?>", 
                     images/suburbicon.jpg 500w"
                     sizes="(max-width: 1000px) 100vw, 1000px"
 							alt="Film Cover">

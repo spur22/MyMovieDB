@@ -30,7 +30,7 @@
 							
 							<?php
     
-$cons = $bd->query("SELECT * FROM titulopelicula,fechastitulos WHERE titulopelicula.id_pelicula=fechastitulos.id_titulo ORDER BY fecha DESC");
+$cons = $bd->query("SELECT * FROM titulopelicula,fechastitulos WHERE titulopelicula.id_pelicula=fechastitulos.id_titulo ORDER BY fecha DESC LIMIT 10");
     while ($rows = $cons->fetch_assoc()) {
         ?>
                             <tr>

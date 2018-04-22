@@ -49,6 +49,10 @@ class Utilidades
         
         $pais = end($pais);
         
+        if ($pais=="UK"){
+            $pais="United Kingdom";
+        }
+        
         return $this->imagenpais($pais);
     }
 
