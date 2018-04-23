@@ -125,7 +125,7 @@
     
 } else {
         
-        $bd->pasar($_POST["link"], $_POST["fecha"], $_POST["rewatch"]);
+        $bd->pasar($_POST["link"], $_POST["fecha"], $_POST["rewatch"], "");
         
         unset($_POST);
         header("Location:index.php");
