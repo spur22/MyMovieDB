@@ -24,11 +24,18 @@ class Utilidades
 
     public function imagenpais($pais)
     {
-        $array2 = $this->htmltojson("https://restcountries.eu/rest/v2/name/" . $pais);
+        $imagenfinal = "";
         
-        $imagen = $array2[0]["flag"];
+        if (! empty($pais)) {
+            
+            $array2 = $this->htmltojson("https://restcountries.eu/rest/v2/name/" . $pais);
+            
+            $imagen = $array2[0]["flag"];
+            
+            $imagenfinal = "<img title='" . $pais . "' width=64 src=" . $imagen . ">";
+        }
         
-        return "<img width=64 src=" . $imagen . ">";
+        return $imagenfinal;
     }
 
     public function ordenaraleatorio()
@@ -49,8 +56,8 @@ class Utilidades
         
         $pais = end($pais);
         
-        if ($pais=="UK"){
-            $pais="United Kingdom";
+        if ($pais == "UK") {
+            $pais = "United Kingdom";
         }
         
         return $this->imagenpais($pais);
@@ -60,13 +67,13 @@ class Utilidades
     {
         if ($sexo == 2) {
             if (! $solosimbolo) {
-                echo "male";
+                echo "male ";
             }
             ?>
 <i class="ion-male"></i><?php
         } else if ($sexo == 1) {
             if (! $solosimbolo) {
-                echo "female";
+                echo "female ";
             }
             ?>
 <i class="ion-female"></i><?php

@@ -6,6 +6,7 @@ class BaseDeDatos extends mysqli
     //TODO añadir en utilidades.php un metodo addslashes de array para devolver un array con slashes
 
     private $ut;
+    public $is_random=false;
     
     public function __construct()
     {
@@ -57,6 +58,7 @@ class BaseDeDatos extends mysqli
             $datos["duracion"]=$rows["duracion"];
             $datos["pais"]=$rows["pais"];
             $datos["poster"]=$rows["poster"];
+            $datos["id_pelicula"]=$rows["id_pelicula"];
         }
         return $datos;
     }
@@ -223,7 +225,7 @@ class BaseDeDatos extends mysqli
     public function ranking($tabla, $id_tabla,$plus){
 
         
-        $cons = $this->query("SELECT *,COUNT(*) as con FROM persona,fechastitulos,titulopelicula,".$tabla." WHERE fechastitulos.id_titulo=titulopelicula.id_pelicula and persona.id_persona=".$tabla.".".$id_tabla." and titulopelicula.id_pelicula=".$tabla.".id_pelicula ".$plus." and YEAR(fecha)=2018 GROUP BY persona.id_persona ORDER BY con DESC LIMIT 10");
+        $cons = $this->query("SELECT *,COUNT(*) as con FROM persona,fechastitulos,titulopelicula,".$tabla." WHERE fechastitulos.id_titulo=titulopelicula.id_pelicula and persona.id_persona=".$tabla.".".$id_tabla." and titulopelicula.id_pelicula=".$tabla.".id_pelicula ".$plus." and YEAR(fecha)=".date('Y')." GROUP BY persona.id_persona ORDER BY con DESC LIMIT 10");
         while ($rows = $cons->fetch_assoc()) {
           ?>
                             <tr>
@@ -232,6 +234,33 @@ class BaseDeDatos extends mysqli
 							</tr>
 <?php }
                      
+    }
+    
+    public function datoshaceunaño(){
+        $todaslaspelis=array();
+       
+        
+        $cons="SELECT * FROM fechastitulos WHERE DAY(fecha)=".date('d')." and MONTH(fecha)=".date('m')." and YEAR(fecha)=".(date('Y')-1);
+        
+        $filas=$this->buscarsiexiste($cons);
+        
+        
+        if ($filas>0){
+        $cons = $this->query($cons);
+        while ($rows = $cons->fetch_assoc()) {
+            array_push($todaslaspelis,$this->datospelicula($rows["id_titulo"]));
+        }
+        
+        }else{
+            $cons="SELECT * FROM titulopelicula ORDER BY RAND() LIMIT 1";
+                $cons = $this->query($cons);
+                while ($rows = $cons->fetch_assoc()) {
+                    $todaslaspelis[0]=$this->datospelicula($rows["id_pelicula"]);
+                    $this->is_random=true;
+                }
+        }
+        
+        return $todaslaspelis;
     }
     
     public function paises(){

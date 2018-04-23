@@ -93,7 +93,7 @@ $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . 
 	<!-- home
     ================================================== -->
 	<section id="contactis" class="s-contactis target-section"
-		data-parallax="scroll" data-image-src="images/bg/black-mirror.jpg"
+		data-parallax="scroll" data-image-src="images/bg/<?php echo $ut->ordenaraleatorio()[0] ?>"
 		data-natural-width=1920 data-natural-height=1080
 		data-position-y=center">
 
