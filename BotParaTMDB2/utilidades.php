@@ -1,5 +1,5 @@
 <?php
-
+include_once "simple_html_dom.php";
 class Utilidades
 {
 
@@ -12,7 +12,8 @@ class Utilidades
         
         return $array2;
     }
-
+    
+    
     public function nomostrarnull($dato)
     {
         if (empty($dato)) {
@@ -22,6 +23,15 @@ class Utilidades
         }
     }
 
+    public function conocidopor($id){
+       $html_file=file_get_contents("https://www.themoviedb.org/person/".$id);
+       
+       preg_match('/<p><strong><bdi>Known For<\/bdi><\/strong>(.*)<\/p>/', $html_file, $rol);
+       
+       return $rol[1];
+    }
+    
+    
     public function imagenpais($pais)
     {
         $imagenfinal = "";
@@ -104,5 +114,8 @@ class Utilidades
         return $final;
     }
 }
+/*
+$u=new Utilidades();
 
+*/
 ?>

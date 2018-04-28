@@ -112,7 +112,7 @@ $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . 
 					action="" novalidate="novalidate">
 					<br>
 					<div class="debajoimagen2">role:</div>
-					<div class="debajoimagen3">acting</div>
+					<div class="debajoimagen3"><?php echo $ut->conocidopor($_GET["id"]); ?></div>
 					<br>
 					<div class="debajoimagen2">gender:</div>
 					<div class="debajoimagen3"><?php $ut->sexo($datos["gender"], false); ?></div>
@@ -151,7 +151,7 @@ $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . 
 							<?php echo $datos["profile_path"]  ?>"
 							srcset="https://image.tmdb.org/t/p/w500
 							<?php echo $datos["profile_path"]  ?>", 
-                    images/suburbicon.jpg 500w"
+                    <?php echo $datos["profile_path"] ?> 500w"
                     sizes="(max-width: 1000px) 100vw, 1000px"
 							alt="Film Cover">
 					</p>
