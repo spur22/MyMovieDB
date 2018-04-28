@@ -147,8 +147,34 @@ a.three:hover, a.three:active {
     outline: 0;
 }
 
+a.four {
+	color: #000;
+    font-family: "montserrat-light", sans-serif;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
 
+a.four:hover, a.four:focus, a.four:active {
+    color: #fff;
+}
 
+a.four:hover, a.four:active {
+    outline: 0;
+}
+
+a.five {
+	color: #fff;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+a.five:hover, a.five:focus, a.five:active {
+    color: #16998c;
+}
+
+a.five:hover, a.five:active {
+    outline: 0;
+}
 
 
 
