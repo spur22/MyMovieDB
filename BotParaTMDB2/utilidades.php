@@ -28,7 +28,7 @@ class Utilidades
        
        preg_match('/<p><strong><bdi>Known For<\/bdi><\/strong>(.*)<\/p>/', $html_file, $rol);
        
-       return $rol[1];
+       return trim($rol[1]);
     }
     
     

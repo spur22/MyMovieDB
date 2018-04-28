@@ -112,20 +112,21 @@ $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . 
 					action="" novalidate="novalidate">
 					<br>
 					<div class="debajoimagen2">role:</div>
-					<div class="debajoimagen3"><?php echo $ut->conocidopor($_GET["id"]); ?></div>
+					<div class="debajoimagen3"><?php $rol=$ut->conocidopor($_GET["id"]); echo $rol; ?></div>
 					<br>
 					<div class="debajoimagen2">gender:</div>
 					<div class="debajoimagen3"><?php $ut->sexo($datos["gender"], false); ?></div>
 					<br>
 					<div class="debajoimagen2">known for:</div>
-					<div class="debajoimagen3"><?php echo $bd->peliculasdeactor($_GET["id"]); ?></div>
+					<div class="debajoimagen3"><?php echo $bd->peliculasdepersonarol($_GET["id"], $rol); ?></div>
 					<br>
 					<div class="debajoimagen2">you've watched:</div>
 					<div class="debajoimagen3">
 						<ul class="skill-bars">
 							<li>
-								<div class="progress percent90">
-									<span>90%</span>
+							<?php $por=$bd->peliculasexternaspersona($_GET["id"], $rol); ?>
+								<div class="progress percent<?php echo $por; ?>">
+									<span><?php echo $por; ?>%</span>
 								</div>
 							</li>
 						</ul>
