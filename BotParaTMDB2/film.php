@@ -74,7 +74,7 @@ $fondo=$ut->ordenaraleatorio();
         <div class="row section-header" data-aos="fade-up">
             <div class="col-full">
                 <h1 class="display-2 display-2--light"><?php echo $datos["titulo_original"]; ?></h1>
-				<div class="fuet">There’s nothing orthodox about him.</div>
+				<div class="fuet"><?php echo $datos["tagline"]  ?></div>
             </div>
         </div>
 

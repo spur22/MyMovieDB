@@ -60,6 +60,7 @@ class BaseDeDatos extends mysqli
             $datos["pais"]=$rows["pais"];
             $datos["poster"]=$rows["poster"];
             $datos["id_pelicula"]=$rows["id_pelicula"];
+            $datos["tagline"]=$rows["tagline"];
         }
         return $datos;
     }
