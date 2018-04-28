@@ -74,13 +74,14 @@ $fondo=$ut->ordenaraleatorio();
         <div class="row section-header" data-aos="fade-up">
             <div class="col-full">
                 <h1 class="display-2 display-2--light"><?php echo $datos["titulo_original"]; ?></h1>
+				<div class="fuet">There’s nothing orthodox about him.</div>
             </div>
         </div>
 
 <div class="row contactis-content" data-aos="fade-up">
             
             <div class="contactis-primary">
-                <form name="contactisForm" id="contactisForm" method="post" action="" novalidate="novalidate"><br>
+                <form name="contactisForm" id="contactisForm" method="post" action="" novalidate="novalidate">
                     <div class="debajoimagen2">Director:</div>
 					<div class="debajoimagen3"><?php echo $bd->personaspelicula($_GET["id"], "titulosdirectores", "id_director"); ?></div>
 					<br>

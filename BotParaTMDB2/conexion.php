@@ -230,7 +230,7 @@ class BaseDeDatos extends mysqli
         while ($rows = $cons->fetch_assoc()) {
           ?>
                             <tr>
-								<td><a href="person.php?id=<?php echo $rows["id_persona"] ?>"><?php echo $rows["nombre_persona"] ?></a></td>
+								<td><a class="two" href="person.php?id=<?php echo $rows["id_persona"] ?>"><?php echo $rows["nombre_persona"] ?></a></td>
 								<td><?php echo $rows["con"] ?></td>
 							</tr>
 <?php }
