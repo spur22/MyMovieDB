@@ -32,6 +32,7 @@ $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . 
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/vendor.css">
 <link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="flags/flags.css">
 <link rel="stylesheet" href="ionicons/css/ionicons.min.css">
 
 <!-- script

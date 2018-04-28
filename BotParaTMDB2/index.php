@@ -248,14 +248,8 @@ $n = $a->ordenaraleatorio();
 							</tr>
 						</thead>
 						<tbody>
-							 <tr>
-								<td><img src="flags/blank.gif" class="flag flag-es"/></td>
-								<td>1</td>
-							</tr>
-							 <tr>
-								<td><img src="flags/blank.gif" class="flag flag-it"/></td>
-								<td>2</td>
-							</tr>
+							<?php $bd->paises(); ?>
+
 						</tbody>
 					</table>
 

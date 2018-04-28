@@ -161,7 +161,7 @@ class BaseDeDatos extends mysqli
         $año = explode('-', $arraymovie["release_date"])[0];
         $titulo_original = addslashes($arraymovie["original_title"]);
         $duracion = $arraymovie["runtime"];
-        $pais = addslashes($arraymovie["production_countries"][0]["name"]);
+        $pais = $this->ut->codigopais($arraymovie["production_countries"][0]["name"]);
         $poster = $arraymovie["poster_path"];
         $tagline = addslashes($arraymovie["tagline"]);
         for ($i = 0; $i < count($arraymovie); $i ++) {
@@ -326,7 +326,7 @@ class BaseDeDatos extends mysqli
         while ($rows = $cons->fetch_assoc()) {
             ?>
 <tr>
-	<td><?php echo $this->ut->imagenpais($rows["pais"]) ?></td>
+	<td><?php echo $this->ut->imagenpaisdosletras($rows["pais"]) ?></td>
 	<td><?php echo $rows["con"] ?></td>
 </tr>
 <?php
