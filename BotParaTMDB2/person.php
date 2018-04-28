@@ -5,9 +5,10 @@
 <?php
 include_once "conexion.php";
 include_once "utilidades.php";
-
+include_once "utilidadespaises.php";
 $bd = new BaseDeDatos();
 $ut = new Utilidades();
+$utp = new UtilidadesPaises();
 $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . "?api_key=3f533c5423eaf11962eb53403fccff33&language=en-US");
 
 ?>
@@ -159,7 +160,7 @@ $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . 
 					</p>
 				</div>
 				<!-- end contactis-info -->
-				<div class="debajoimagen"><?php echo $ut->nacimientopais($datos["place_of_birth"]) ?></div>
+				<div class="debajoimagen"><?php echo $utp->nacimientopais($datos["place_of_birth"]) ?></div>
 				<br>
 				<div class="debajoimagen"><?php if (!empty($datos["birthday"])) { echo $ut->fechaesp($datos["birthday"]); } ?></div>
 				<br>

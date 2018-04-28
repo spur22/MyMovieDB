@@ -1,5 +1,6 @@
 <?php
 include_once "utilidades.php";
+include_once "utilidadespaises.php";
 
 class BaseDeDatos extends mysqli
 {
@@ -7,7 +8,7 @@ class BaseDeDatos extends mysqli
     // TODO cambiar el formulario de search de newfilm.php, añadir urlencode
     // TODO añadir en utilidades.php un metodo addslashes de array para devolver un array con slashes
     private $ut;
-
+    private $utp;
     public $is_random = false;
 
     public function __construct()
@@ -24,6 +25,7 @@ class BaseDeDatos extends mysqli
         // echo $x;
         unset($x);
         $this->ut = new Utilidades();
+        $this->utp = new UtilidadesPaises();
     }
 
     public function contar($tablas, $plus)
@@ -161,7 +163,7 @@ class BaseDeDatos extends mysqli
         $año = explode('-', $arraymovie["release_date"])[0];
         $titulo_original = addslashes($arraymovie["original_title"]);
         $duracion = $arraymovie["runtime"];
-        $pais = $this->ut->codigopais($arraymovie["production_countries"][0]["name"]);
+        $pais = $this->utp->codigopais($arraymovie["production_countries"][0]["name"]);
         $poster = $arraymovie["poster_path"];
         $tagline = addslashes($arraymovie["tagline"]);
         for ($i = 0; $i < count($arraymovie); $i ++) {
@@ -326,7 +328,7 @@ class BaseDeDatos extends mysqli
         while ($rows = $cons->fetch_assoc()) {
             ?>
 <tr>
-	<td><?php echo $this->ut->imagenpaisdosletras($rows["pais"]) ?></td>
+	<td><?php echo $this->utp->imagenpaisdosletras($rows["pais"]) ?></td>
 	<td><?php echo $rows["con"] ?></td>
 </tr>
 <?php

@@ -5,8 +5,11 @@
 <?php 
 include_once "conexion.php";
 include_once "utilidades.php";
+include_once "utilidadespaises.php";
 $bd=new BaseDeDatos();
 $ut=new Utilidades();
+$utp=new UtilidadesPaises();
+
 $datos=$bd->datospelicula($_GET["id"]);
 $fondo=$ut->ordenaraleatorio();
 ?>
@@ -119,7 +122,7 @@ $fondo=$ut->ordenaraleatorio();
                         <p><img src="https://image.tmdb.org/t/p/w500<?php echo $datos["poster"] ?>" srcset="https://image.tmdb.org/t/p/w500<?php echo $datos["poster"] ?>"
                     sizes="(max-width: 1000px) 100vw, 1000px" alt="Film Cover"></p>
                 </div> <!-- end contactis-info -->
-                <div class="debajoimagen"><?php echo $ut->imagenpaisdosletras($datos["pais"]) ?></div><br>
+                <div class="debajoimagen"><?php echo $utp->imagenpaisdosletras($datos["pais"]) ?></div><br>
 				<div class="debajoimagen"><?php echo $datos["año"]; ?></div><br>
 				<div class="debajoimagen"><?php echo $ut->minutosahoras($datos["duracion"]); ?></div><br>
 				<?php if ($bd->rewatch($_GET["id"])){ ?><div class="debajoimagen"><i class="ion-loop"></i></div><?php } ?><br>
