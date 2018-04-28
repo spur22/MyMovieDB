@@ -24,7 +24,7 @@
 		</p>
 	</div>
 	<!-- end contact-info -->
-	<div class="debajoimagen"><?php echo "<a href=film.php?id=".$id.">".$titulo ."</a>" ?></div>
+	<div class="debajoimagen"><?php echo "<a class=five href=film.php?id=".$id.">".$titulo ."</a>" ?></div>
 	<br>
 	<div class="debajoimagen"><?php echo $año ?></div>
 	<br> <br>
