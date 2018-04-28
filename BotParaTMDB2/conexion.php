@@ -10,6 +10,7 @@ class BaseDeDatos extends mysqli
     
     public function __construct()
     {
+        //TODO Sugerencia película aleatoria en el fondo del actor en el que salga él
         include_once 'simple_html_dom.php';
         date_default_timezone_set('Europe/Madrid');
         

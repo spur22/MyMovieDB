@@ -47,7 +47,7 @@
 			</form>
 				<?php
             } else {
-                header("Location:search.php?search=" . $_POST["contactName"]);
+                header("Location:search.php?search=" . urlencode($_POST["contactName"]));
             }
             ?>
                 <!-- contact-warning -->
