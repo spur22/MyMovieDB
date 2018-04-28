@@ -1356,6 +1356,17 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     margin-bottom: 0;
 }
 
+.fuet {
+    font-family: "montserrat-light", sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.333;
+    text-transform: uppercase;
+    color: #FFF;
+	opacity: 0.65;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 
 /* ------------------------------------------------------------------- 
  * responsive:
