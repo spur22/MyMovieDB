@@ -34,6 +34,7 @@ $n = $a->ordenaraleatorio();
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/vendor.css">
 <link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="flags/flags.css">
 <link rel="stylesheet" href="ionicons/css/ionicons.min.css">
 
 <!-- script
@@ -55,7 +56,7 @@ $n = $a->ordenaraleatorio();
 	<header class="s-header">
 
 		<div class="header-logo">
-			<a class="site-logo" href="index.html"> <img src="images/logo1.png"
+			<a class="site-logo" href="index.php"> <img src="images/logo1.png"
 				alt="Homepage">
 			</a>
 		</div>
@@ -247,7 +248,14 @@ $n = $a->ordenaraleatorio();
 							</tr>
 						</thead>
 						<tbody>
-							<?php $bd->paises(); ?>
+							 <tr>
+								<td><img src="flags/blank.gif" class="flag flag-es"/></td>
+								<td>1</td>
+							</tr>
+							 <tr>
+								<td><img src="flags/blank.gif" class="flag flag-it"/></td>
+								<td>2</td>
+							</tr>
 						</tbody>
 					</table>
 
