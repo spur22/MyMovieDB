@@ -176,7 +176,19 @@ a.five:hover, a.five:active {
     outline: 0;
 }
 
+a.six {
+	color: #000;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
 
+a.six:hover, a.six:focus, a.six:active {
+    color: #fff;
+}
+
+a.six:hover, a.six:active {
+    outline: 0;
+}
 
 /* ===================================================================
  * # typography & general theme styles
@@ -1448,6 +1460,15 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     margin-bottom: 0;
 }
 
+.espetec {
+	text-align: center;
+	    font-family: "montserrat-bold", sans-serif;
+    font-size: 8.4rem;
+    line-height: 1;
+    color: #FFFFFF;
+	text-transform: uppercase;
+}
+
 
 /* ------------------------------------------------------------------- 
  * responsive:
@@ -2574,6 +2595,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#16998c', end
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+.stats__vamosrafa {
+	padding: 0px 450px;
+	size: 150%;
+}
+
 .stats h5 {
     font-family: "montserrat-semibold", sans-serif;
     margin-top: 1.8rem;
