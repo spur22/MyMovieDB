@@ -95,6 +95,9 @@ class BaseDeDatos extends mysqli
         } else if ($rol == "Camera"){
             $cantidad = $this->contar("peliculasfotografos", "id_foto=" . $id);
             $total = $this->valorarrayasociativo($rol, $arraypersona["crew"]);
+        } else if ($rol == "Writing"){
+            $cantidad = $this->contar("peliculasguionistas", "id_guionista=" . $id);
+            $total = $this->valorarrayasociativo($rol, $arraypersona["crew"]);
         }
         
         $porcentaje = ($cantidad / $total) * 100;
