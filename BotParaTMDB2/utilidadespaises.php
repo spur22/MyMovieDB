@@ -106,6 +106,7 @@ class UtilidadesPaises
 
     public function nacimientopais($nacimiento)
     {
+        $nacimiento = trim($nacimiento);
         $pais = "";
         $caracter = '';
         if (strpos($pais, ',')) {
@@ -115,13 +116,8 @@ class UtilidadesPaises
         }
         
         $pais = explode($caracter . " ", $nacimiento);
-        if (empty($pais[count($pais)])) {
-            // Si está vacío el último elemento coge el penúltimo (útil si tiene espacios en blanco)
-            $pais = $pais[count($pais) - 2];
-        } else {
-            $pais = end($pais);
-        }
-        $pais = trim($pais);
+        
+        $pais = end($pais);
         
         if ($pais == "UK") {
             $pais = "United Kingdom";
