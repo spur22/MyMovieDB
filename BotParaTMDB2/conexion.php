@@ -290,7 +290,7 @@ class BaseDeDatos extends mysqli
 
     public function ranking($tabla, $id_tabla, $plus)
     {
-        $cons = $this->query("SELECT *,COUNT(*) as con FROM persona,fechastitulos,titulopelicula," . $tabla . " WHERE fechastitulos.id_titulo=titulopelicula.id_pelicula and persona.id_persona=" . $tabla . "." . $id_tabla . " and titulopelicula.id_pelicula=" . $tabla . ".id_pelicula " . $plus . " and YEAR(fecha)=" . date('Y') . " GROUP BY persona.id_persona ORDER BY con DESC LIMIT 10");
+        $cons = $this->query("SELECT *,COUNT(*) as con FROM persona,fechastitulos,titulopelicula," . $tabla . " WHERE fechastitulos.id_titulo=titulopelicula.id_pelicula and persona.id_persona=" . $tabla . "." . $id_tabla . " and titulopelicula.id_pelicula=" . $tabla . ".id_pelicula " . $plus . " GROUP BY persona.id_persona ORDER BY con DESC LIMIT 10");
         while ($rows = $cons->fetch_assoc()) {
             ?>
 <tr>
@@ -327,9 +327,9 @@ class BaseDeDatos extends mysqli
         return $todaslaspelis;
     }
 
-    public function paises()
+    public function paises($plus)
     {
-        $cons = $this->query("SELECT pais,COUNT(*) as con FROM titulopelicula GROUP BY pais ORDER BY con DESC LIMIT 10");
+        $cons = $this->query("SELECT pais,COUNT(*) as con FROM titulopelicula,fechastitulos WHERE titulopelicula.id_pelicula=fechastitulos.id_titulo ".$plus." GROUP BY pais ORDER BY con DESC LIMIT 10");
         while ($rows = $cons->fetch_assoc()) {
             ?>
 <tr>

@@ -62,7 +62,7 @@ $cons = $bd->query("SELECT * FROM titulopelicula,fechastitulos WHERE titulopelic
 				<h5></h5>
 			</div>
 			<div class="col-block stats__col">
-				<div class="stats__count"><?php echo $bd->contar("titulopelicula,fechastitulos","titulopelicula.id_pelicula=fechastitulos.id_titulo and YEAR(fecha)=2018"); ?></div>
+				<div class="stats__count"><?php echo $bd->contar("titulopelicula,fechastitulos","titulopelicula.id_pelicula=fechastitulos.id_titulo and YEAR(fecha)=".date('Y')); ?></div>
 				<h5>FILMS THIS YEAR</h5>
 			</div>
 			<div class="col-block stats__col">

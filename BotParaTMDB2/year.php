@@ -21,7 +21,8 @@ $n = $a->ordenaraleatorio();
 <!--- basic page needs
     ================================================== -->
 <meta charset="utf-8">
-<title>MyMovieDB | 2018</title>
+<?php $año=$_GET["a"] ?>
+<title>MyMovieDB | <?php echo $año ?></title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -79,7 +80,7 @@ $n = $a->ordenaraleatorio();
 			<div class="row home-content__main">
 				<table>
 				<div class="col-block stats__col">
-				<div class="stats__contador">2018</div>
+				<div class="stats__contador"><?php echo $año ?></div>
 
 					</table>
 			</div>
@@ -99,12 +100,12 @@ $n = $a->ordenaraleatorio();
 				<h5></h5>
 			</div>
 			<div class="col-block stats__col">
-				<div class="stats__count">511</div>
-				<h5>FILMS IN 2018</h5>
+				<div class="stats__count"><?php echo $bd->contar("titulopelicula,fechastitulos", "titulopelicula.id_pelicula=fechastitulos.id_titulo and YEAR(fecha)=".$año) ?></div>
+				<h5>FILMS IN <?php echo $año ?></h5>
 			</div>
 			<div class="col-block stats__col">
-				<div class="stats__count">256</div>
-				<h5>2018 FILMS</h5>
+				<div class="stats__count"><?php echo $bd->contar("titulopelicula", "año=".$año) ?></div>
+				<h5><?php echo $año ?> FILMS</h5>
 			</div>
 			<div class="col-block stats__cole">
 				<div class="stats__count">1</div>
@@ -236,7 +237,7 @@ $n = $a->ordenaraleatorio();
 							</tr>
 						</thead>
 						<tbody>
-							<?php $bd->paises(); ?>
+							<?php $bd->paises(" and YEAR(fecha)=".$año); ?>
 
 						</tbody>
 					</table>
