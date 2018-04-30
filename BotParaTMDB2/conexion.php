@@ -8,7 +8,9 @@ class BaseDeDatos extends mysqli
     // TODO cambiar el formulario de search de newfilm.php, añadir urlencode
     // TODO añadir en utilidades.php un metodo addslashes de array para devolver un array con slashes
     private $ut;
+
     private $utp;
+
     public $is_random = false;
 
     public function __construct()
@@ -89,13 +91,13 @@ class BaseDeDatos extends mysqli
         } else if ($rol == "Directing") {
             $cantidad = $this->contar("titulosdirectores", "id_director=" . $id);
             $total = $this->valorarrayasociativo($rol, $arraypersona["crew"]);
-        } else if ($rol == "Sound"){
+        } else if ($rol == "Sound") {
             $cantidad = $this->contar("peliculasmusicos", "id_musico=" . $id);
             $total = $this->valorarrayasociativo($rol, $arraypersona["crew"]);
-        } else if ($rol == "Camera"){
+        } else if ($rol == "Camera") {
             $cantidad = $this->contar("peliculasfotografos", "id_foto=" . $id);
             $total = $this->valorarrayasociativo($rol, $arraypersona["crew"]);
-        } else if ($rol == "Writing"){
+        } else if ($rol == "Writing") {
             $cantidad = $this->contar("peliculasguionistas", "id_guionista=" . $id);
             $total = $this->valorarrayasociativo($rol, $arraypersona["crew"]);
         }
