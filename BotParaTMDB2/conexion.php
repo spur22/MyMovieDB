@@ -327,9 +327,24 @@ class BaseDeDatos extends mysqli
         return $todaslaspelis;
     }
 
+    public function peliculasaño($plus)
+    {
+        for ($i = 2017; $i <= date('Y'); $i ++) {
+            ?>
+
+<tr>
+	<td><a href=year.php?a= <?php echo $i ?>><?php echo $i ?></a></td>
+	<td>  <?php
+            echo $this->contar("titulopelicula,fechastitulos", "titulopelicula.id_pelicula=fechastitulos.id_titulo and YEAR(fecha)=" . $i . " " . $plus);
+            ?></td>
+</tr>
+<?php
+        }
+    }
+
     public function paises($plus)
     {
-        $cons = $this->query("SELECT pais,COUNT(*) as con FROM titulopelicula,fechastitulos WHERE titulopelicula.id_pelicula=fechastitulos.id_titulo ".$plus." GROUP BY pais ORDER BY con DESC LIMIT 10");
+        $cons = $this->query("SELECT pais,COUNT(*) as con FROM titulopelicula,fechastitulos WHERE titulopelicula.id_pelicula=fechastitulos.id_titulo " . $plus . " GROUP BY pais ORDER BY con DESC LIMIT 10");
         while ($rows = $cons->fetch_assoc()) {
             ?>
 <tr>

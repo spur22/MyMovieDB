@@ -13,6 +13,90 @@ class UtilidadesPaises
         return $imagenfinal;
     }
 
+    public function dosletrasaentero($dosletras)
+    {
+        $paisentero = "";
+        switch ($dosletras) {
+            case "au":
+                $paisentero = "Australia";
+                break;
+            case "be":
+                $paisentero = "Belgium";
+                break;
+            case "bg":
+                $paisentero = "Bulgaria";
+                break;
+            case "ca":
+                $paisentero = "Canada";
+                break;
+            case "cl":
+                $paisentero = "Chile";
+                break;
+            case "cn":
+                $paisentero = "China";
+                break;
+            case "dk":
+                $paisentero = "Denmark";
+                break;
+            case "fi":
+                $paisentero = "Finland";
+                break;
+            case "fr":
+                $paisentero = "France";
+                break;
+            case "de":
+                $paisentero = "Germany";
+                break;
+            case "hk":
+                $paisentero = "Hong Kong";
+                break;
+            case "hu":
+                $paisentero = "Hungary";
+                break;
+            case "ie":
+                $paisentero = "Ireland";
+                break;
+            case "it":
+                $paisentero = "Italy";
+                break;
+            case "jp":
+                $paisentero = "Japan";
+                break;
+            case "nc":
+                $paisentero = "New Zealand";
+                break;
+            case "pl":
+                $paisentero = "Poland";
+                break;
+            case "pt":
+                $paisentero = "Portugal";
+                break;
+            case "za":
+                $paisentero = "South Africa";
+                break;
+            case "es":
+                $paisentero = "Spain";
+                break;
+            case "ch":
+                $paisentero = "Switzerland";
+                break;
+            case "ae":
+                $paisentero = "United Arab Emirates";
+                break;
+            case "gb":
+                $paisentero = "United Kingdom";
+                break;
+            case "us":
+                $paisentero = "United States of America";
+                break;
+            default:
+                $paisentero = "__";
+                break;
+        }
+        
+        return $paisentero;
+    }
+
     public function codigopais($paisentero)
     {
         $dosletras = "__";

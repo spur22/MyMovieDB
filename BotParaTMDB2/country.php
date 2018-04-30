@@ -7,11 +7,15 @@
 include_once "conexion.php";
 include_once "utilidades.php";
 
+include_once "utilidadespaises.php";
+
 $bd = new BaseDeDatos();
 $a = new Utilidades();
+$utp = new UtilidadesPaises();
 
 $n = $a->ordenaraleatorio();
-
+$pais = $_GET["c"];
+$paisentero = $utp->dosletrasaentero($pais);
 ?>
 <html class="no-js" lang="en">
 <!--<![endif]-->
@@ -21,7 +25,7 @@ $n = $a->ordenaraleatorio();
 <!--- basic page needs
     ================================================== -->
 <meta charset="utf-8">
-<title>MyMovieDB | Belgium</title>
+<title>MyMovieDB | <?php echo $paisentero ?></title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -78,12 +82,14 @@ $n = $a->ordenaraleatorio();
 
 			<div class="row home-content__main">
 				<table>
-				<div class="col-block stats__col">
-				<div class="stats__vamosrafa"><img src='flags/blank.gif' class='flag flag-be'  title='be' ></div>
-				<div class="espetec">BELGIUM</div>
-
-
-					</table>
+					<div class="col-block stats__col">
+						<div class="stats__vamosrafa">
+							<img src='flags/blank.gif' class='flag flag-<?php echo $pais ?>'
+								title='<?php echo $paisentero ?>'>
+						</div>
+						<div class="espetec"><?php echo $paisentero ?></div>
+				
+				</table>
 			</div>
 			<!-- end home-content -->
 	
@@ -105,11 +111,11 @@ $n = $a->ordenaraleatorio();
 				<h5></h5>
 			</div>
 			<div class="col-block stats__col">
-				<div class="stats__count">25</div>
+				<div class="stats__count"><?php echo $bd->contar("titulopelicula", "pais LIKE '".$pais."'") ?></div>
 				<h5>FILMS</h5>
 			</div>
 			<div class="col-block stats__col">
-				<div class="stats__count">71</div>
+				<div class="stats__count"><?php echo $bd->contar("titulopelicula, fechastitulos", "titulopelicula.id_pelicula=fechastitulos.id_titulo and fechastitulos.id_titulo and YEAR(fecha)=".date('Y')." and pais LIKE '".$pais."'") ?></div>
 				<h5>FILMS THIS YEAR</h5>
 			</div>
 			<div class="col-block stats__cole">
@@ -117,9 +123,11 @@ $n = $a->ordenaraleatorio();
 				<h5></h5>
 			</div>
 
-		</div><br><br>
-		
-		
+		</div>
+		<br>
+		<br>
+
+
 		<div class="row section-header has-bottom-sep" data-aos="fade-up">
 			<div class="col-full">
 				<h3 class="subhead subhead--dark">MOST SEEN</h3>
@@ -143,7 +151,7 @@ $n = $a->ordenaraleatorio();
 							</tr>
 						</thead>
 						<tbody>
-<?php $bd->ranking("peliculasactores", "id_actor", "and sexo=2"); ?>
+<?php $bd->ranking("peliculasactores", "id_actor", "and sexo=2 and pais LIKE '".$pais."'"); ?>
 </tbody>
 					</table>
 
@@ -152,8 +160,7 @@ $n = $a->ordenaraleatorio();
 			</div>
 		</div>
 		<!-- end diary-desc -->
-		<br>
-		<br>
+		<br> <br>
 		<div class="row section-header has-bottom-sep" data-aos="fade-up">
 			<div class="col-full">
 				<h3 class="subhead subhead--dark">MOST SEEN</h3>
@@ -177,7 +184,7 @@ $n = $a->ordenaraleatorio();
 							</tr>
 						</thead>
 						<tbody>
-<?php $bd->ranking("peliculasactores", "id_actor", "and sexo=1"); ?>
+<?php $bd->ranking("peliculasactores", "id_actor", "and sexo=1 and pais LIKE '".$pais."'"); ?>
 </tbody>
 					</table>
 
@@ -210,7 +217,7 @@ $n = $a->ordenaraleatorio();
 							</tr>
 						</thead>
 						<tbody>
-							<?php $bd->ranking("titulosdirectores", "id_director", ""); ?>
+							<?php $bd->ranking("titulosdirectores", "id_director", "and pais LIKE '".$pais."'"); ?>
 						</tbody>
 					</table>
 
@@ -222,7 +229,7 @@ $n = $a->ordenaraleatorio();
 		<br>
 		<div class="row section-header has-bottom-sep" data-aos="fade-up">
 			<div class="col-full">
-				<h3 class="subhead subhead--dark">BELGIUM FILMS</h3>
+				<h3 class="subhead subhead--dark"><?php echo $paisentero ?> FILMS</h3>
 				<h1 class="display-1 display-1--light">BY YEARS</h1>
 			</div>
 		</div>
@@ -238,21 +245,12 @@ $n = $a->ordenaraleatorio();
 					<table>
 						<thead>
 							<tr>
-								<td><h4>Country</h4></td>
+								<td><h4>Year</h4></td>
 								<td><h4>#</h4></td>
 							</tr>
 						</thead>
 						<tbody>
-						<tr>
-								<td><a href="year.php" class="two">2018</a></td>
-								<td>32</td>
-								
-						</tr>
-												<tr>
-								<td>2017</td>
-								<td>26</td>
-								
-						</tr>
+								<?php echo $bd->peliculasaño("and pais LIKE '".$pais."'") ?>
 
 						</tbody>
 					</table>
