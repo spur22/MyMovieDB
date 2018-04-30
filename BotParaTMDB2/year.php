@@ -21,7 +21,7 @@ $n = $a->ordenaraleatorio();
 <!--- basic page needs
     ================================================== -->
 <meta charset="utf-8">
-<title>MyMovieDB</title>
+<title>MyMovieDB | 2018</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -78,52 +78,40 @@ $n = $a->ordenaraleatorio();
 
 			<div class="row home-content__main">
 				<table>
-					<tr>
-						<th><h2>
-								<a class="smoothscroll" href="#diary" title="Diary"><i
-									class="ion-calendar"></i></a>
-							</h2></th>
-						<th><h2>
-								<a class="smoothscroll" href="#contact" title="Search"><i
-									class="ion-search"></i></a>
-							</h2></th>
-						<th><h2>
-								<a class="smoothscroll" href="#add" title="Add"><i
-									class="ion-plus-round"></i></a>
-							</h2></th>
-						<th><h2>
-								<a class="smoothscroll" href="#statis" title="Stats"><i
-									class="ion-stats-bars"></i></a>
-							</h2></th>
-					</tr>
-				</table>
+				<div class="col-block stats__col">
+				<div class="stats__contador">2018</div>
 
-
-
+					</table>
 			</div>
 			<!-- end home-content -->
 	
 	</section>
 	<!-- end s-home -->
-
-
-	<!-- stats
-    ================================================== -->
-	<?php include "diary.php"; ?>
-	<!-- end s-diary -->
-
-
-	<!-- contact
-    ================================================== -->
-	<?php include "newfilm.php"; ?>
-	<!-- end s-contact -->
-
-
-	<!-- diary
-    ================================================== -->
-
-
+	
 	<section id='statis' class="s-statis">
+	
+	<div
+			class="row about-stats stats block-1-4 block-m-1-2 block-mob-full"
+			data-aos="fade-up">
+
+			<div class="col-block stats__cole">
+				<div class="stats__count">1</div>
+				<h5></h5>
+			</div>
+			<div class="col-block stats__col">
+				<div class="stats__count">511</div>
+				<h5>FILMS IN 2018</h5>
+			</div>
+			<div class="col-block stats__col">
+				<div class="stats__count">256</div>
+				<h5>2018 FILMS</h5>
+			</div>
+			<div class="col-block stats__cole">
+				<div class="stats__count">1</div>
+				<h5></h5>
+			</div>
+
+		</div><br><br>
 
 		<div class="row section-header has-bottom-sep" data-aos="fade-up">
 			<div class="col-full">
@@ -253,33 +241,6 @@ $n = $a->ordenaraleatorio();
 						</tbody>
 					</table>
 
-				</div>
-				</p>
-			</div>
-		</div>
-		<!-- end diary-desc -->
-				<br>
-		<div class="row section-header has-bottom-sep" data-aos="fade-up">
-			<div class="col-full">
-				<h3 class="subhead subhead--dark">year stats</h3>
-			</div>
-		</div>
-		<!-- end section-header -->
-				<div class="row statis-desc" data-aos="fade-up">
-			<div class="col-full">
-				<p>
-				
-				
-				<div class="table-responsive">
-
-					<table>
-				<div class="col-block stats__col">
-				<div class="stats__contador">2018</div><br>
-				<div class="stats__contador">2017</div>
-
-					</table>
-					
-				</div>
 				</div>
 				</p>
 			</div>

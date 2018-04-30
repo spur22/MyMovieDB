@@ -57,7 +57,7 @@ $cons = $bd->query("SELECT * FROM titulopelicula,fechastitulos WHERE titulopelic
 			class="row about-stats stats block-1-4 block-m-1-2 block-mob-full"
 			data-aos="fade-up">
 
-			<div class="col-block stats__cole ">
+			<div class="col-block stats__cole">
 				<div class="stats__count">1</div>
 				<h5></h5>
 			</div>
