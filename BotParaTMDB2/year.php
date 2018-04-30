@@ -79,19 +79,19 @@ $n = $a->ordenaraleatorio();
 
 			<div class="row home-content__main">
 				<table>
-				<div class="col-block stats__col">
-				<div class="stats__contador"><?php echo $año ?></div>
-
-					</table>
+					<div class="col-block stats__col">
+						<div class="stats__contador"><?php echo $año ?></div>
+				
+				</table>
 			</div>
 			<!-- end home-content -->
 	
 	</section>
 	<!-- end s-home -->
-	
+
 	<section id='statis' class="s-statis">
-	
-	<div
+
+		<div
 			class="row about-stats stats block-1-4 block-m-1-2 block-mob-full"
 			data-aos="fade-up">
 
@@ -112,7 +112,9 @@ $n = $a->ordenaraleatorio();
 				<h5></h5>
 			</div>
 
-		</div><br><br>
+		</div>
+		<br>
+		<br>
 
 		<div class="row section-header has-bottom-sep" data-aos="fade-up">
 			<div class="col-full">
@@ -137,7 +139,7 @@ $n = $a->ordenaraleatorio();
 							</tr>
 						</thead>
 						<tbody>
-<?php $bd->ranking("peliculasactores", "id_actor", "and sexo=2"); ?>
+<?php $bd->ranking("peliculasactores", "id_actor", "and sexo=2 and YEAR(fecha)=".$año); ?>
 </tbody>
 					</table>
 
@@ -146,8 +148,7 @@ $n = $a->ordenaraleatorio();
 			</div>
 		</div>
 		<!-- end diary-desc -->
-		<br>
-		<br>
+		<br> <br>
 		<div class="row section-header has-bottom-sep" data-aos="fade-up">
 			<div class="col-full">
 				<h3 class="subhead subhead--dark">MOST SEEN</h3>
@@ -171,7 +172,7 @@ $n = $a->ordenaraleatorio();
 							</tr>
 						</thead>
 						<tbody>
-<?php $bd->ranking("peliculasactores", "id_actor", "and sexo=1"); ?>
+<?php $bd->ranking("peliculasactores", "id_actor", "and sexo=1 and YEAR(fecha)=".$año); ?>
 </tbody>
 					</table>
 
@@ -204,7 +205,7 @@ $n = $a->ordenaraleatorio();
 							</tr>
 						</thead>
 						<tbody>
-							<?php $bd->ranking("titulosdirectores", "id_director", ""); ?>
+							<?php $bd->ranking("titulosdirectores", "id_director",  "and YEAR(fecha)=".$año); ?>
 						</tbody>
 					</table>
 
