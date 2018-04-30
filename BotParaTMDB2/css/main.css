@@ -2563,6 +2563,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#16998c', end
     white-space: nowrap;
 }
 
+.stats__contador {
+	padding: 0px 370px;
+    font-family: "montserrat-bold", sans-serif;
+    font-size: 8.4rem;
+    line-height: 1;
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 .stats h5 {
     font-family: "montserrat-semibold", sans-serif;
     margin-top: 1.8rem;
