@@ -37,7 +37,7 @@ $cons = $bd->query("SELECT * FROM titulopelicula,fechastitulos WHERE titulopelic
 								<td><?php echo date("m", strtotime($rows["fecha"]));  ?></td>
 								<td><?php echo date("d", strtotime($rows["fecha"]));  ?></td>
 								<td><a class="two" href="film.php?id=<?php echo $rows["id_titulo"] ?>"><?php echo $rows["titulo_original"];  ?></a></td>
-								<td><?php echo $rows["año"];  ?></td>
+								<td><a href="year.php?a=<?php echo $rows["año"] ?>"><?php echo $rows["año"];  ?></a></td>
 								<td><?php echo $a->minutosahoras($rows["duracion"]);  ?></td>
 								<td><?php if ($rows["rewatch"]==1){?><b><i class="ion-loop"></i></b><?php } ?></td>
 							</tr>

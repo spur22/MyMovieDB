@@ -348,7 +348,7 @@ class BaseDeDatos extends mysqli
         while ($rows = $cons->fetch_assoc()) {
             ?>
 <tr>
-	<td><?php echo $this->utp->imagenpaisdosletras($rows["pais"]) ?></td>
+	<td><a href="country.php?c=<?php echo $rows["pais"] ?>"><?php echo $this->utp->imagenpaisdosletras($rows["pais"]) ?></a></td>
 	<td><?php echo $rows["con"] ?></td>
 </tr>
 <?php
