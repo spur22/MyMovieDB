@@ -546,6 +546,9 @@ td.two {
 	color: #fff;
     font-family: "montserrat-bold", sans-serif;
 }
+td.three {
+	text-align: center;
+}
 
 th:first-child, td:first-child {
     padding-left: 0;
@@ -953,6 +956,34 @@ input[type="reset"].btn--primary:focus,
 input[type="button"].btn--primary:focus {
     background: #138277;
     border-color: #138277;
+}
+
+
+/* button rafa
+ * ------------------------------------------------- */
+
+.btn.btn--rafa,
+button.btn--rafa,
+input[type="submit"].btn--rafa,
+input[type="reset"].btn--rafa,
+input[type="button"].btn--rafa {
+    background: #ab4430;
+    border-color: #ab4430;
+    color: #FFFFFF;
+}
+
+.btn.btn--rafa:hover,
+button.btn--rafa:hover,
+input[type="submit"].btn--rafa:hover,
+input[type="reset"].btn--rafa:hover,
+input[type="button"].btn--rafa:hover,
+.btn.btn--rafa:focus,
+button.btn--rafa:focus,
+input[type="submit"].btn--rafa:focus,
+input[type="reset"].btn--rafa:focus,
+input[type="button"].btn--rafa:focus {
+    background: #9c4332;
+    border-color: #9c4332;
 }
 
 
@@ -3715,6 +3746,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#16998c', end
 .contactis-content textarea.placeholder {
     color: #4f4f4f !important;
 }
+
 .contactis-primary, .contactis-info {
     float: right;
     padding: 0 5rem;
