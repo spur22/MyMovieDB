@@ -87,7 +87,7 @@ class UtilidadesPaises
                 $paisentero = "United Kingdom";
                 break;
             case "us":
-                $paisentero = "United States of America";
+                $paisentero = "United States";
                 break;
             default:
                 $paisentero = "__";
