@@ -26,7 +26,7 @@ class Search
         $consulta = "";
         switch ($tipo) {
             case 1:
-                $consulta = "SELECT id_pelicula,titulo,año FROM titulopelicula WHERE (titulo LIKE '%" . $elemento . "%' or titulo LIKE '" . $elemento . "' or titulo_original LIKE '%" . $elemento . "%' or titulo_original LIKE '" . $elemento . "') LIMIT 10";
+                $consulta = "SELECT id_pelicula,titulo_original,año FROM titulopelicula WHERE (titulo LIKE '%" . $elemento . "%' or titulo LIKE '" . $elemento . "' or titulo_original LIKE '%" . $elemento . "%' or titulo_original LIKE '" . $elemento . "') LIMIT 10";
                 break;
             case 2:
                 $consulta = "SELECT id_persona,nombre_persona,sexo FROM persona WHERE nombre_persona LIKE '%" . $elemento . "%' or nombre_persona LIKE '" . $elemento . "' GROUP BY id_persona LIMIT 20";
