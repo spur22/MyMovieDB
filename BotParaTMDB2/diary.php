@@ -18,12 +18,13 @@
 					<table>
 						<thead>
 							<tr>
-								<td><h4>Month</h4></td>
+								<td class="three"><h4>Month</h4></td>
 								<td><h4>Day</h4></td>
 								<td><h4>Film</h4></td>
 								<td><h4>Released</h4></td>
 								<td><h4>Lenght</h4></td>
 								<td><h4>Rewatch</h4></td>
+								<td><h4></h4></td>
 							</tr>
 						</thead>
 						<tbody>
@@ -34,12 +35,13 @@ $cons = $bd->query("SELECT * FROM titulopelicula,fechastitulos WHERE titulopelic
     while ($rows = $cons->fetch_assoc()) {
         ?>
                             <tr>
-								<td><?php echo date("m", strtotime($rows["fecha"]));  ?></td>
-								<td><?php echo date("d", strtotime($rows["fecha"]));  ?></td>
+								<td class="three"><?php echo date("m", strtotime($rows["fecha"]));  ?></td>
+								<td class="three"><?php echo date("d", strtotime($rows["fecha"]));  ?></td>
 								<td><a class="two" href="film.php?id=<?php echo $rows["id_titulo"] ?>"><?php echo $rows["titulo_original"];  ?></a></td>
-								<td><a href="year.php?a=<?php echo $rows["año"] ?>"><?php echo $rows["año"];  ?></a></td>
-								<td><?php echo $a->minutosahoras($rows["duracion"]);  ?></td>
-								<td><?php if ($rows["rewatch"]==1){?><b><i class="ion-loop"></i></b><?php } ?></td>
+								<td class="three"><a class="two" href="year.php?a=<?php echo $rows["año"] ?>"><?php echo $rows["año"];  ?></a></td>
+								<td class="three"><?php echo $a->minutosahoras($rows["duracion"]);  ?></td>
+								<td class="three"><?php if ($rows["rewatch"]==1){?><b><i class="ion-loop"></i></b><?php } ?></td>
+								<td><b><a href="#" class="six"><i class="ion-edit"></i></a></b></td>
 							</tr>
 							<?php
     }

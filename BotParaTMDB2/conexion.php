@@ -333,7 +333,7 @@ class BaseDeDatos extends mysqli
             ?>
 
 <tr>
-	<td><a href=year.php?a= <?php echo $i ?>><?php echo $i ?></a></td>
+	<td><a class="two" href=year.php?a= <?php echo $i ?>><?php echo $i ?></a></td>
 	<td>  <?php
             echo $this->contar("titulopelicula,fechastitulos", "titulopelicula.id_pelicula=fechastitulos.id_titulo and YEAR(fecha)=" . $i . " " . $plus);
             ?></td>

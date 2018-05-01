@@ -26,7 +26,7 @@ class Search
         $consulta = "";
         switch ($tipo) {
             case 1:
-                $consulta = "SELECT id_pelicula,titulo_original,año FROM titulopelicula WHERE (titulo LIKE '%" . $elemento . "%' or titulo LIKE '" . $elemento . "' or titulo_original LIKE '%" . $elemento . "%' or titulo_original LIKE '" . $elemento . "') LIMIT 10";
+                $consulta = "SELECT id_pelicula,titulo,año FROM titulopelicula WHERE (titulo LIKE '%" . $elemento . "%' or titulo LIKE '" . $elemento . "' or titulo_original LIKE '%" . $elemento . "%' or titulo_original LIKE '" . $elemento . "') LIMIT 10";
                 break;
             case 2:
                 $consulta = "SELECT id_persona,nombre_persona,sexo FROM persona WHERE nombre_persona LIKE '%" . $elemento . "%' or nombre_persona LIKE '" . $elemento . "' GROUP BY id_persona LIMIT 20";
@@ -40,6 +40,7 @@ class Search
 		<tr>
 			<td class="two"><?php echo $tr1; ?></td>
 			<td class="two"><?php echo $tr2; ?></td>
+			<td class="two">Edit</td>
 		</tr>
 	</thead>
 	<tbody>
@@ -54,6 +55,7 @@ class Search
 				href="<?php if ($tipo==1) {echo "film"; }else{ echo "person"; } ?>.php?id=<?php echo $rows[0]; ?>"
 				class="three"><?php echo $rows[1] ?></a></td>
 			<td class="one"><?php if ($tipo==2){$this->ut->sexo($rows[2], true);}else{echo $rows[2];} ?></td>
+			<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
 		</tr>
 		
 		<?php } ?> 
