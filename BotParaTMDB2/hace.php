@@ -26,7 +26,7 @@
 	<!-- end contact-info -->
 	<div class="debajoimagen"><?php echo "<a class=five href=film.php?id=".$id.">".$titulo ."</a>" ?></div>
 	<br>
-	<div class="debajoimagen"><?php echo $año ?></div>
+	<div class="debajoimagen"><a href="#" class="seven"><?php echo $año ?></a></div>
 	<br> <br>
 			<?php  for ($i=1;$i<count($a);$i++){?>
 			<div class="salchicon">

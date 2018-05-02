@@ -160,7 +160,7 @@ $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . 
 					</p>
 				</div>
 				<!-- end contactis-info -->
-				<div class="debajoimagen"><?php echo $utp->nacimientopais($datos["place_of_birth"]) ?></div>
+				<div class="debajoimagen"><a href="#"><?php echo $utp->nacimientopais($datos["place_of_birth"]) ?></a></div>
 				<br>
 				<div class="debajoimagen"><?php if (!empty($datos["birthday"])) { echo $ut->fechaesp($datos["birthday"]); } ?></div>
 				<br>
