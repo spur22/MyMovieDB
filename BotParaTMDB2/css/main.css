@@ -190,6 +190,20 @@ a.six:hover, a.six:active {
     outline: 0;
 }
 
+a.seven {
+	color: #fff;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+a.seven:hover, a.seven:focus, a.seven:active {
+    color: #16998c;
+}
+
+a.seven:hover, a.seven:active {
+    outline: 0;
+}
+
 /* ===================================================================
  * # typography & general theme styles
  * 
@@ -2624,6 +2638,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#16998c', end
     position: relative;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.salami {
+	padding: 0px 370px 25px 370px;
+    font-family: "montserrat-bold", sans-serif;
+    font-size: 8.4rem;
+    line-height: 1;
+    color: #FFFFFF;
+    position: relative;
     white-space: nowrap;
 }
 
