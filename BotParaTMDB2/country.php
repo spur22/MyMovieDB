@@ -263,6 +263,86 @@ $paisentero = $utp->dosletrasaentero($pais);
 	</section>
 	<!-- end s-diary -->
 
+	<!-- home
+    ================================================== -->
+	<section id="home" class="s-home target-section" data-parallax="scroll"
+		data-image-src="images/bg/<?php echo $n[1]; ?>"
+		data-natural-width=1920 data-natural-height=1080
+		data-position-y=center>
+
+		<div class="overlay"></div>
+		<div class="shadow-overlay"></div>
+
+		<div class="home-content">
+
+			<div class="row home-content__main">
+						<div class="salami"><section id="add">FILMS</section></div><BR>
+
+<table>
+	<thead>
+		<tr>
+			<td class="two">Film</td>
+			<td class="two">Date</td>
+		</tr>
+	</thead>
+	<tbody>
+	        		<tr>
+			<td class="one"><a
+				href="#"
+				class="three">Lady Bird</a></td>
+			<td class="one">2018/02/25</td>
+			<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
+		</tr>
+		
+				<tr>
+			<td class="one"><a
+				href="#"
+				class="three">Moonlight</a></td>
+			<td class="one">2018/02/25</td>
+			<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
+		</tr>
+		
+				<tr>
+			<td class="one"><a
+				href="#"
+				class="three">The Lord of the Rings</a></td>
+			<td class="one">2018/02/25</td>
+			<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
+		</tr>
+		
+				<tr>
+			<td class="one"><a
+				href="#"
+				class="three">13</a></td>
+			<td class="one">2018/02/25</td>
+			<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
+		</tr>
+		
+				<tr>
+			<td class="one"><a
+				href="#"
+				class="three">Get Out</a></td>
+			<td class="one">2018/02/25</td>
+			<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
+		</tr>
+		
+				<tr>
+			<td class="one"><a
+				href="#"
+				class="three">Mad Max: Fury Road</a></td>
+			<td class="one">2018/02/25</td>
+			<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
+		</tr>
+		
+		 
+	</tbody>
+</table>
+			</div>
+			<!-- end home-content -->
+	
+	</section>
+	<!-- end s-home -->
+	
 	<!-- footer
     ================================================== -->
 	<footer>
