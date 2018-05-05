@@ -2504,6 +2504,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#16998c', end
     background-color: rgba(255, 255, 255, 0.25);
 }
 
+
 .diary-desc {
     font-size: 2.4rem;
     line-height: 1.75;
@@ -2517,7 +2518,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#16998c', end
     text-align: center;
     max-width: 1024px;
 }
-
 
 /* ------------------------------------------------------------------- 
  * ## diary stats
@@ -2684,7 +2684,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#16998c', end
     right: 7.2rem;
     top: 0;
 }
-
 
 /* ------------------------------------------------------------------- 
  * responsive:
