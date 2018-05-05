@@ -8,7 +8,7 @@ class UtilidadesPaises
         if ($dosletras == "__") {
             $imagenfinal = "";
         } else {
-            $imagenfinal = "<img src='flags/blank.gif' class='flag flag-" . $dosletras . "'  title='" . $dosletras . "' >";
+            $imagenfinal = "<a href=country.php?c=" . $dosletras . "><img src='flags/blank.gif' class='flag flag-" . $dosletras . "'  title='" . $this->dosletrasaentero($dosletras) . "' ></a>";
         }
         return $imagenfinal;
     }

@@ -124,8 +124,7 @@ $paisentero = $utp->dosletrasaentero($pais);
 			</div>
 
 		</div>
-		<br>
-		<br>
+		<br> <br>
 
 
 		<div class="row section-header has-bottom-sep" data-aos="fade-up">
@@ -276,73 +275,29 @@ $paisentero = $utp->dosletrasaentero($pais);
 		<div class="home-content">
 
 			<div class="row home-content__main">
-						<div class="salami"><section id="add">FILMS</section></div><BR>
+				<div class="salami">
+					<section id="add">FILMS</section>
+				</div>
+				<BR>
 
-<table>
-	<thead>
-		<tr>
-			<td class="two">Film</td>
-			<td class="two">Date</td>
-		</tr>
-	</thead>
-	<tbody>
-	        		<tr>
-			<td class="one"><a
-				href="#"
-				class="three">Lady Bird</a></td>
-			<td class="one">2018/02/25</td>
-			<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
-		</tr>
-		
-				<tr>
-			<td class="one"><a
-				href="#"
-				class="three">Moonlight</a></td>
-			<td class="one">2018/02/25</td>
-			<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
-		</tr>
-		
-				<tr>
-			<td class="one"><a
-				href="#"
-				class="three">The Lord of the Rings</a></td>
-			<td class="one">2018/02/25</td>
-			<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
-		</tr>
-		
-				<tr>
-			<td class="one"><a
-				href="#"
-				class="three">13</a></td>
-			<td class="one">2018/02/25</td>
-			<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
-		</tr>
-		
-				<tr>
-			<td class="one"><a
-				href="#"
-				class="three">Get Out</a></td>
-			<td class="one">2018/02/25</td>
-			<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
-		</tr>
-		
-				<tr>
-			<td class="one"><a
-				href="#"
-				class="three">Mad Max: Fury Road</a></td>
-			<td class="one">2018/02/25</td>
-			<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
-		</tr>
-		
-		 
+				<table>
+					<thead>
+						<tr>
+							<td class="two">Film</td>
+							<td class="two">Date</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+<?php echo $bd->ultimas10("pais LIKE '".$pais."'") ?>
 	</tbody>
-</table>
+				</table>
 			</div>
 			<!-- end home-content -->
 	
 	</section>
 	<!-- end s-home -->
-	
+
 	<!-- footer
     ================================================== -->
 	<footer>

@@ -274,7 +274,7 @@ $n = $a->ordenaraleatorio();
 		</tr>
 	</thead>
 	<tbody>
-	 <?php $bd->ultimas10($año); ?>
+	 <?php $bd->ultimas10("año=".$año); ?>
 	</tbody>
 </table>
 			</div>

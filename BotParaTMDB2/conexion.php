@@ -290,13 +290,13 @@ class BaseDeDatos extends mysqli
 
     public function ranking($tabla, $id_tabla, $plus, $general)
     {
-        $fechastitulos="";
-        $igualartablas="";
-        if (!$general){
-            $fechastitulos="fechastitulos,";
-            $igualartablas="fechastitulos.id_titulo=titulopelicula.id_pelicula and";
+        $fechastitulos = "";
+        $igualartablas = "";
+        if (! $general) {
+            $fechastitulos = "fechastitulos,";
+            $igualartablas = "fechastitulos.id_titulo=titulopelicula.id_pelicula and";
         }
-        $cons = $this->query("SELECT *,COUNT(*) as con FROM persona,".$fechastitulos."titulopelicula," . $tabla . " WHERE ".$igualartablas." persona.id_persona=" . $tabla . "." . $id_tabla . " and titulopelicula.id_pelicula=" . $tabla . ".id_pelicula " . $plus . " GROUP BY persona.id_persona ORDER BY con DESC LIMIT 10");
+        $cons = $this->query("SELECT *,COUNT(*) as con FROM persona," . $fechastitulos . "titulopelicula," . $tabla . " WHERE " . $igualartablas . " persona.id_persona=" . $tabla . "." . $id_tabla . " and titulopelicula.id_pelicula=" . $tabla . ".id_pelicula " . $plus . " GROUP BY persona.id_persona ORDER BY con DESC LIMIT 10");
         while ($rows = $cons->fetch_assoc()) {
             ?>
 <tr>
@@ -308,23 +308,22 @@ class BaseDeDatos extends mysqli
         }
     }
 
-    public function ultimas10($año){
-        
-        $cons = $this->query("SELECT id_pelicula,titulo_original,fecha FROM fechastitulos,titulopelicula WHERE fechastitulos.id_titulo=titulopelicula.id_pelicula and año=".$año." ORDER BY fecha DESC LIMIT 10");
+    public function ultimas10($cond)
+    {
+        $cons = $this->query("SELECT id_pelicula,titulo_original,fecha FROM fechastitulos,titulopelicula WHERE fechastitulos.id_titulo=titulopelicula.id_pelicula and " . $cond . " ORDER BY fecha DESC LIMIT 10");
         while ($rows = $cons->fetch_assoc()) {
             
-        ?>
-        <tr>
-        <td class="one"><a
-        href="film.php?id=<?php echo $rows["id_pelicula"] ?>"
-    class="three"><?php echo $rows["titulo_original"] ?></a></td>
-    <td class="one"><?php echo $rows["fecha"] ?></td>
-    <td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
-    </tr>
-    <?php 
+            ?>
+<tr>
+	<td class="one"><a
+		href="film.php?id=<?php echo $rows["id_pelicula"] ?>" class="three"><?php echo $rows["titulo_original"] ?></a></td>
+	<td class="one"><?php echo $rows["fecha"] ?></td>
+	<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
+</tr>
+<?php
+        }
     }
-    }
-    
+
     public function datoshaceunaño()
     {
         $todaslaspelis = array();
@@ -371,7 +370,7 @@ class BaseDeDatos extends mysqli
         while ($rows = $cons->fetch_assoc()) {
             ?>
 <tr>
-	<td><a href="country.php?c=<?php echo $rows["pais"] ?>"><?php echo $this->utp->imagenpaisdosletras($rows["pais"]) ?></a></td>
+	<td><?php echo $this->utp->imagenpaisdosletras($rows["pais"]) ?></td>
 	<td><?php echo $rows["con"] ?></td>
 </tr>
 <?php
