@@ -139,7 +139,7 @@ $n = $a->ordenaraleatorio();
 							</tr>
 						</thead>
 						<tbody>
-<?php $bd->ranking("peliculasactores", "id_actor", "and sexo=2 and YEAR(fecha)=".$año); ?>
+<?php $bd->ranking("peliculasactores", "id_actor", "and sexo=2 and YEAR(fecha)=".$año, false); ?>
 </tbody>
 					</table>
 
@@ -172,7 +172,7 @@ $n = $a->ordenaraleatorio();
 							</tr>
 						</thead>
 						<tbody>
-<?php $bd->ranking("peliculasactores", "id_actor", "and sexo=1 and YEAR(fecha)=".$año); ?>
+<?php $bd->ranking("peliculasactores", "id_actor", "and sexo=1 and YEAR(fecha)=".$año, false); ?>
 </tbody>
 					</table>
 
@@ -205,7 +205,7 @@ $n = $a->ordenaraleatorio();
 							</tr>
 						</thead>
 						<tbody>
-							<?php $bd->ranking("titulosdirectores", "id_director",  "and YEAR(fecha)=".$año); ?>
+							<?php $bd->ranking("titulosdirectores", "id_director",  "and YEAR(fecha)=".$año, false); ?>
 						</tbody>
 					</table>
 

@@ -288,9 +288,15 @@ class BaseDeDatos extends mysqli
         $this->query("INSERT INTO fechastitulos (fecha, id_titulo, rewatch, medio) VALUES ('" . $fecha . "', '" . $id . "', '" . $rewatch . "', '" . $medio . "')");
     }
 
-    public function ranking($tabla, $id_tabla, $plus)
+    public function ranking($tabla, $id_tabla, $plus, $general)
     {
-        $cons = $this->query("SELECT *,COUNT(*) as con FROM persona,fechastitulos,titulopelicula," . $tabla . " WHERE fechastitulos.id_titulo=titulopelicula.id_pelicula and persona.id_persona=" . $tabla . "." . $id_tabla . " and titulopelicula.id_pelicula=" . $tabla . ".id_pelicula " . $plus . " GROUP BY persona.id_persona ORDER BY con DESC LIMIT 10");
+        $fechastitulos="";
+        $igualartablas="";
+        if (!$general){
+            $fechastitulos="fechastitulos,";
+            $igualartablas="fechastitulos.id_titulo=titulopelicula.id_pelicula and";
+        }
+        $cons = $this->query("SELECT *,COUNT(*) as con FROM persona,".$fechastitulos."titulopelicula," . $tabla . " WHERE ".$igualartablas." persona.id_persona=" . $tabla . "." . $id_tabla . " and titulopelicula.id_pelicula=" . $tabla . ".id_pelicula " . $plus . " GROUP BY persona.id_persona ORDER BY con DESC LIMIT 10");
         while ($rows = $cons->fetch_assoc()) {
             ?>
 <tr>

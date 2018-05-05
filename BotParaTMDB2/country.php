@@ -151,7 +151,7 @@ $paisentero = $utp->dosletrasaentero($pais);
 							</tr>
 						</thead>
 						<tbody>
-<?php $bd->ranking("peliculasactores", "id_actor", "and sexo=2 and pais LIKE '".$pais."'"); ?>
+<?php $bd->ranking("peliculasactores", "id_actor", "and sexo=2 and pais LIKE '".$pais."'", true); ?>
 </tbody>
 					</table>
 
@@ -184,7 +184,7 @@ $paisentero = $utp->dosletrasaentero($pais);
 							</tr>
 						</thead>
 						<tbody>
-<?php $bd->ranking("peliculasactores", "id_actor", "and sexo=1 and pais LIKE '".$pais."'"); ?>
+<?php $bd->ranking("peliculasactores", "id_actor", "and sexo=1 and pais LIKE '".$pais."'", true); ?>
 </tbody>
 					</table>
 
@@ -217,7 +217,7 @@ $paisentero = $utp->dosletrasaentero($pais);
 							</tr>
 						</thead>
 						<tbody>
-							<?php $bd->ranking("titulosdirectores", "id_director", "and pais LIKE '".$pais."'"); ?>
+							<?php $bd->ranking("titulosdirectores", "id_director", "and pais LIKE '".$pais."'", true); ?>
 						</tbody>
 					</table>
 
