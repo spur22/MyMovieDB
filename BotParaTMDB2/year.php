@@ -80,7 +80,7 @@ $n = $a->ordenaraleatorio();
 			<div class="row home-content__main">
 				<table>
 					<div class="col-block stats__col">
-						<div class="stats__contador"><a href="#add" class="seven"><?php echo $año ?></a></div>
+						<div class="stats__contador"><a href="#add"><?php echo $año ?></a></div>
 				
 				</table>
 			</div>
@@ -89,7 +89,7 @@ $n = $a->ordenaraleatorio();
 	</section>
 	<!-- end s-home -->
 
-	<section id='statis' class="s-statis">
+	<section id='diary' class="s-diary">
 
 		<div
 			class="row about-stats stats block-1-4 block-m-1-2 block-mob-full"
@@ -124,7 +124,7 @@ $n = $a->ordenaraleatorio();
 		</div>
 		<!-- end section-header -->
 
-		<div class="row statis-desc" data-aos="fade-up">
+		<div class="row diary-desc" data-aos="fade-up">
 			<div class="col-full">
 				<p>
 				
@@ -157,7 +157,7 @@ $n = $a->ordenaraleatorio();
 		</div>
 		<!-- end section-header -->
 
-		<div class="row statis-desc" data-aos="fade-up">
+		<div class="row diary-desc" data-aos="fade-up">
 			<div class="col-full">
 				<p>
 				
@@ -190,7 +190,7 @@ $n = $a->ordenaraleatorio();
 		</div>
 		<!-- end section-header -->
 
-		<div class="row statis-desc" data-aos="fade-up">
+		<div class="row diary-desc" data-aos="fade-up">
 			<div class="col-full">
 				<p>
 				
@@ -223,7 +223,7 @@ $n = $a->ordenaraleatorio();
 		</div>
 		<!-- end section-header -->
 
-		<div class="row statis-desc" data-aos="fade-up">
+		<div class="row diary-desc" data-aos="fade-up">
 			<div class="col-full">
 				<p>
 				
@@ -270,11 +270,10 @@ $n = $a->ordenaraleatorio();
 		<tr>
 			<td class="two">Film</td>
 			<td class="two">Date</td>
-			<td></td>
 		</tr>
 	</thead>
 	<tbody>
-	 <?php $bd->ultimas10("año=".$año); ?>
+	 <?php $bd->ultimas10($año); ?>
 	</tbody>
 </table>
 			</div>

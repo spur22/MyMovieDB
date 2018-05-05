@@ -87,7 +87,7 @@ $paisentero = $utp->dosletrasaentero($pais);
 							<img src='flags/blank.gif' class='flag flag-<?php echo $pais ?>'
 								title='<?php echo $paisentero ?>'>
 						</div>
-						<div class="espetec"><?php echo $paisentero ?></div>
+						<div class="espetec"><a href="#add"><?php echo $paisentero ?></a></div>
 				
 				</table>
 			</div>
@@ -100,7 +100,7 @@ $paisentero = $utp->dosletrasaentero($pais);
     ================================================== -->
 
 
-	<section id='statis' class="s-statis">
+	<section id='diary' class="s-diary">
 
 		<div
 			class="row about-stats stats block-1-4 block-m-1-2 block-mob-full"
@@ -124,7 +124,8 @@ $paisentero = $utp->dosletrasaentero($pais);
 			</div>
 
 		</div>
-		<br> <br>
+		<br>
+		<br>
 
 
 		<div class="row section-header has-bottom-sep" data-aos="fade-up">
@@ -135,7 +136,7 @@ $paisentero = $utp->dosletrasaentero($pais);
 		</div>
 		<!-- end section-header -->
 
-		<div class="row statis-desc" data-aos="fade-up">
+		<div class="row diary-desc" data-aos="fade-up">
 			<div class="col-full">
 				<p>
 				
@@ -168,7 +169,7 @@ $paisentero = $utp->dosletrasaentero($pais);
 		</div>
 		<!-- end section-header -->
 
-		<div class="row statis-desc" data-aos="fade-up">
+		<div class="row diary-desc" data-aos="fade-up">
 			<div class="col-full">
 				<p>
 				
@@ -201,7 +202,7 @@ $paisentero = $utp->dosletrasaentero($pais);
 		</div>
 		<!-- end section-header -->
 
-		<div class="row statis-desc" data-aos="fade-up">
+		<div class="row diary-desc" data-aos="fade-up">
 			<div class="col-full">
 				<p>
 				
@@ -234,7 +235,7 @@ $paisentero = $utp->dosletrasaentero($pais);
 		</div>
 		<!-- end section-header -->
 
-		<div class="row statis-desc" data-aos="fade-up">
+		<div class="row diary-desc" data-aos="fade-up">
 			<div class="col-full">
 				<p>
 				
@@ -275,29 +276,67 @@ $paisentero = $utp->dosletrasaentero($pais);
 		<div class="home-content">
 
 			<div class="row home-content__main">
-				<div class="salami">
-					<section id="add">FILMS</section>
-				</div>
-				<BR>
+						<div class="salami"><section id="add">FILMS</section></div><BR>
 
-				<table>
-					<thead>
-						<tr>
-							<td class="two">Film</td>
-							<td class="two">Date</td>
-							<td></td>
-						</tr>
-					</thead>
-					<tbody>
-<?php echo $bd->ultimas10("pais LIKE '".$pais."'") ?>
+<table>
+	<thead>
+		<tr>
+			<td class="two">Film</td>
+			<td class="two">Date</td>
+		</tr>
+	</thead>
+	<tbody>
+	        		<tr>
+			<td class="one"><a
+				href="#"
+				class="seven">Lady Bird</a></td>
+			<td class="one">2018/02/25</td>
+		</tr>
+		
+				<tr>
+			<td class="one"><a
+				href="#"
+				class="seven">Moonlight</a></td>
+			<td class="one">2018/02/25</td>
+		</tr>
+		
+				<tr>
+			<td class="one"><a
+				href="#"
+				class="seven">The Lord of the Rings</a></td>
+			<td class="one">2018/02/25</td>
+		</tr>
+		
+				<tr>
+			<td class="one"><a
+				href="#"
+				class="seven">13</a></td>
+			<td class="one">2018/02/25</td>
+		</tr>
+		
+				<tr>
+			<td class="one"><a
+				href="#"
+				class="seven">Get Out</a></td>
+			<td class="one">2018/02/25</td>
+		</tr>
+		
+				<tr>
+			<td class="one"><a
+				href="#"
+				class="seven">Mad Max: Fury Road</a></td>
+			<td class="one">2018/02/25</td>
+		</tr>
+		
+		 
 	</tbody>
-				</table>
+</table>
 			</div>
 			<!-- end home-content -->
 	
 	</section>
 	<!-- end s-home -->
-
+	
 	<!-- footer
     ================================================== -->
 	<footer>

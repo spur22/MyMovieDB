@@ -275,7 +275,7 @@ $n = $a->ordenaraleatorio();
 					<table>
 				<div class="col-block stats__col">
 				<?php for ($i=2017;$i<=date('Y');$i++){ ?>
-				<div class="stats__contador"><a href=year.php?a=<?php echo $i ?>><?php echo $i ?></div>
+				<div class="stats__contador"><a class="six" href=year.php?a=<?php echo $i ?>><?php echo $i ?></div>
 				 <?php } ?>
 
 					</table>

@@ -24,7 +24,6 @@
 								<td><h4>Released</h4></td>
 								<td><h4>Lenght</h4></td>
 								<td><h4>Rewatch</h4></td>
-								<td><h4></h4></td>
 							</tr>
 						</thead>
 						<tbody>
@@ -41,7 +40,6 @@ $cons = $bd->query("SELECT * FROM titulopelicula,fechastitulos WHERE titulopelic
 								<td class="three"><a class="two" href="year.php?a=<?php echo $rows["año"] ?>"><?php echo $rows["año"];  ?></a></td>
 								<td class="three"><?php echo $a->minutosahoras($rows["duracion"]);  ?></td>
 								<td class="three"><?php if ($rows["rewatch"]==1){?><b><i class="ion-loop"></i></b><?php } ?></td>
-								<td><b><a href="#" class="six"><i class="ion-edit"></i></a></b></td>
 							</tr>
 							<?php
     }

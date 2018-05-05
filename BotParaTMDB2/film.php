@@ -122,10 +122,11 @@ $fondo=$ut->ordenaraleatorio();
                         <p><img src="https://image.tmdb.org/t/p/w500<?php echo $datos["poster"] ?>" srcset="https://image.tmdb.org/t/p/w500<?php echo $datos["poster"] ?>"
                     sizes="(max-width: 1000px) 100vw, 1000px" alt="Film Cover"></p>
                 </div> <!-- end contactis-info -->
-                <div class="debajoimagen"><?php echo $utp->imagenpaisdosletras($datos["pais"]) ?></div><br>
+                <div class="debajoimagen"><a href="#"><?php echo $utp->imagenpaisdosletras($datos["pais"]) ?></a></div><br>
 				<div class="debajoimagen"><a href="#" class="seven"><?php echo $datos["año"]; ?></a></div><br>
 				<div class="debajoimagen"><?php echo $ut->minutosahoras($datos["duracion"]); ?></div><br>
 				<?php if ($bd->rewatch($_GET["id"])){ ?><div class="debajoimagen"><i class="ion-loop"></i></div><?php } ?><br>
+				<div class="debajoimagen"><a href="#" class="seven"><i class="ion-edit"></i></a></div><br>
             </div> <!-- end contactis-secondary -->
 
         </div> <!-- end contactis-content -->

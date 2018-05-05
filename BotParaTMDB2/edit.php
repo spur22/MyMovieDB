@@ -189,7 +189,11 @@ $fondo=$ut->ordenaraleatorio();
 							value="" minlength="2" required="" aria-required="true"
 							class="full-width">
 					</div></div><br>
-				<?php if ($bd->rewatch($_GET["id"])){ ?><div class="debajoimagen"><i class="ion-loop"></i></div><?php } ?><br>
+				<div class="debajoimagen"><div class="form-field">
+						<input name="link" type="text" id="link" placeholder="Rewatch"
+							value="" minlength="2" required="" aria-required="true"
+							class="full-width">
+					</div></div><br>
             </div> <!-- end contactis-secondary -->
 
         </div> <!-- end contactis-content -->
