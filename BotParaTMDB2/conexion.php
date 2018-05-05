@@ -308,6 +308,23 @@ class BaseDeDatos extends mysqli
         }
     }
 
+    public function ultimas10($año){
+        
+        $cons = $this->query("SELECT id_pelicula,titulo_original,fecha FROM fechastitulos,titulopelicula WHERE fechastitulos.id_titulo=titulopelicula.id_pelicula and año=".$año." ORDER BY fecha DESC LIMIT 10");
+        while ($rows = $cons->fetch_assoc()) {
+            
+        ?>
+        <tr>
+        <td class="one"><a
+        href="film.php?id=<?php echo $rows["id_pelicula"] ?>"
+    class="three"><?php echo $rows["titulo_original"] ?></a></td>
+    <td class="one"><?php echo $rows["fecha"] ?></td>
+    <td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
+    </tr>
+    <?php 
+    }
+    }
+    
     public function datoshaceunaño()
     {
         $todaslaspelis = array();

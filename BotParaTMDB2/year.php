@@ -270,58 +270,11 @@ $n = $a->ordenaraleatorio();
 		<tr>
 			<td class="two">Film</td>
 			<td class="two">Date</td>
+			<td></td>
 		</tr>
 	</thead>
 	<tbody>
-	        		<tr>
-			<td class="one"><a
-				href="#"
-				class="three">Lady Bird</a></td>
-			<td class="one">2018/02/25</td>
-			<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
-		</tr>
-		
-				<tr>
-			<td class="one"><a
-				href="#"
-				class="three">Moonlight</a></td>
-			<td class="one">2018/02/25</td>
-			<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
-		</tr>
-		
-				<tr>
-			<td class="one"><a
-				href="#"
-				class="three">The Lord of the Rings</a></td>
-			<td class="one">2018/02/25</td>
-			<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
-		</tr>
-		
-				<tr>
-			<td class="one"><a
-				href="#"
-				class="three">13</a></td>
-			<td class="one">2018/02/25</td>
-			<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
-		</tr>
-		
-				<tr>
-			<td class="one"><a
-				href="#"
-				class="three">Get Out</a></td>
-			<td class="one">2018/02/25</td>
-			<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
-		</tr>
-		
-				<tr>
-			<td class="one"><a
-				href="#"
-				class="three">Mad Max: Fury Road</a></td>
-			<td class="one">2018/02/25</td>
-			<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
-		</tr>
-		
-		 
+	 <?php $bd->ultimas10($año); ?>
 	</tbody>
 </table>
 			</div>
