@@ -839,11 +839,11 @@ input[type="checkbox"], input[type="radio"] {
     display: inline;
 }
 
-label > .label-text {
+label .label-text {
     display: inline-block;
     margin-left: 1rem;
     font-family: "montserrat-light", sans-serif;
-	color: #fff;
+	color: red;
     font-weight: normal;
     line-height: inherit;
 }
@@ -2018,7 +2018,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: .4;
+    opacity: .7;
     background: #000;
 }
 
@@ -3393,7 +3393,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#16998c', end
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: .3;
+    opacity: .7;
     background-color: #000;
 }
 
@@ -3502,31 +3502,31 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#16998c', end
 .contact-content input::-webkit-input-placeholder,
 .contact-content select::-webkit-input-placeholder,
 .contact-content textarea::-webkit-input-placeholder {
-    color: #4f4f4f;
+    color: #16998c;
 }
 
 .contact-content input:-moz-placeholder,
 .contact-content select:-moz-placeholder,
 .contact-content textarea:-moz-placeholder {
-    color: #4f4f4f;    /* Firefox 18- */
+    color: #16998c;    /* Firefox 18- */
 }
 
 .contact-content input::-moz-placeholder,
 .contact-content select::-moz-placeholder,
 .contact-content textarea::-moz-placeholder {
-    color: #4f4f4f;    /* Firefox 19+ */
+    color: #16998c;    /* Firefox 19+ */
 }
 
 .contact-content input:-ms-input-placeholder,
 .contact-content select:-ms-input-placeholder,
 .contact-content textarea:-ms-input-placeholder {
-    color: #4f4f4f;
+    color: #16998c;
 }
 
 .contact-content input.placeholder,
 .contact-content select.placeholder,
 .contact-content textarea.placeholder {
-    color: #4f4f4f !important;
+    color: #16998c !important;
 }
 .contact-primary, .contact-info {
     float: left;
@@ -3635,7 +3635,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#16998c', end
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: .4;
+    opacity: .7;
     background-color: #000;
 }
 
@@ -3743,31 +3743,31 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#16998c', end
 .contactis-content input::-webkit-input-placeholder,
 .contactis-content select::-webkit-input-placeholder,
 .contactis-content textarea::-webkit-input-placeholder {
-    color: #4f4f4f;
+    color: #16998c;
 }
 
 .contactis-content input:-moz-placeholder,
 .contactis-content select:-moz-placeholder,
 .contactis-content textarea:-moz-placeholder {
-    color: #4f4f4f;    /* Firefox 18- */
+    color: #16998c;    /* Firefox 18- */
 }
 
 .contactis-content input::-moz-placeholder,
 .contactis-content select::-moz-placeholder,
 .contactis-content textarea::-moz-placeholder {
-    color: #4f4f4f;    /* Firefox 19+ */
+    color: #16998c;    /* Firefox 19+ */
 }
 
 .contactis-content input:-ms-input-placeholder,
 .contactis-content select:-ms-input-placeholder,
 .contactis-content textarea:-ms-input-placeholder {
-    color: #4f4f4f;
+    color: #16998c;
 }
 
 .contactis-content input.placeholder,
 .contactis-content select.placeholder,
 .contactis-content textarea.placeholder {
-    color: #4f4f4f !important;
+    color: #16998c !important;
 }
 
 .contactis-primary, .contactis-info {
