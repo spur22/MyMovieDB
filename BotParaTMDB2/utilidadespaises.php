@@ -5,11 +5,9 @@ class UtilidadesPaises
 
     public function imagenpaisdosletras($dosletras)
     {
-        if ($dosletras == "__") {
-            $imagenfinal = "";
-        } else {
-            $imagenfinal = "<img src='flags/blank.gif' class='flag flag-" . $dosletras . "'  title='" . $dosletras . "' >";
-        }
+ 
+       $imagenfinal = "<img src='flags/blank.gif' class='flag flag-" . $dosletras . "'  title='" . $dosletras . "' >";
+        
         return $imagenfinal;
     }
 
@@ -120,7 +118,7 @@ class UtilidadesPaises
                 $paisentero = "United States";
                 break;
             default:
-                $paisentero = "__";
+                $paisentero = "tv";
                 break;
         }
         
@@ -234,7 +232,7 @@ class UtilidadesPaises
                 $dosletras = "us";
                 break;
             default:
-                $dosletras = "__";
+                $dosletras = "tv";
                 break;
         }
         

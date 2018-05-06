@@ -155,7 +155,7 @@ $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . 
 
 			<div class="contactis-secondary">
 				<div class="contactis-info">
-					<p>
+					<p> <?php if (!empty($datos["profile_path"])) { ?>
 						<img
 							src="https://image.tmdb.org/t/p/w500
 							<?php echo $datos["profile_path"]  ?>"
@@ -165,16 +165,17 @@ $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . 
                     <?php echo $datos["profile_path"] ?> 500w"
                     sizes="(max-width: 1000px) 100vw, 1000px"
 							alt="Film Cover">
+							<?php } else { ?> <img src="images/no-person.jpg"> <?php  } ?>
 					</p>
 				</div>
 				<!-- end contactis-info -->
 				<div class="debajoimagen">
-					<a href="#"><?php echo $utp->nacimientopais($datos["place_of_birth"]) ?></a>
+					<a href="#"><?php if (!empty($datos["place_of_birth"])){echo $utp->nacimientopais($datos["place_of_birth"]); } ?></a>
 				</div>
 				<br>
 				<div class="debajoimagen"><?php if (!empty($datos["birthday"])) { echo $ut->fechaesp($datos["birthday"]); } ?></div>
 				<br>
-				<div class="debajoimagen"><?php if (!is_null($datos["deathday"])) { echo $ut->fechaesp($datos["deathday"]); } ?></div>
+				<div class="debajoimagen"><?php if (!empty($datos["deathday"])) { echo $ut->fechaesp($datos["deathday"]); } ?></div>
 				<div class="debajoimagen">
 					<a href="editperson.php?id=<?php echo $_GET["id"] ?>" class="seven"><i
 						class="ion-edit"></i></a>
