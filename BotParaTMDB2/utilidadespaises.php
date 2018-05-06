@@ -17,6 +17,9 @@ class UtilidadesPaises
     {
         $paisentero = "";
         switch ($dosletras) {
+            case "tv":
+                $paisentero = "Tuvalu";
+                break;
             case "ro":
                 $paisentero = "Romania";
                 break;
@@ -128,6 +131,9 @@ class UtilidadesPaises
     {
         $dosletras = "__";
         switch ($paisentero) {
+            case "Tuvalu":
+                $dosletras = "tv";
+                break;
             case "Romania":
                 $dosletras = "ro";
                 break;
