@@ -104,7 +104,7 @@
 					<br>
 					<div class="add-bottom">
 						<input align="center" type="checkbox" name="rewatch" id="rewatch"
-							value=1> Rewatch
+							value=1> <span class="label-text">Rewatch</span>
 					</div>
 					<div class="form-field">
 						<button class="full-width btn--primary" name="insertfilm"
