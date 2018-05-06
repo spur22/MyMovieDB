@@ -1,5 +1,6 @@
 <?php
 include_once "simple_html_dom.php";
+
 class Utilidades
 {
 
@@ -12,8 +13,7 @@ class Utilidades
         
         return $array2;
     }
-    
-    
+
     public function nomostrarnull($dato)
     {
         if (empty($dato)) {
@@ -23,23 +23,23 @@ class Utilidades
         }
     }
 
-    public function conocidopor($id){
-       $html_file=file_get_contents("https://www.themoviedb.org/person/".$id);
-       
-       preg_match('/<p><strong><bdi>Known For<\/bdi><\/strong>(.*)<\/p>/', $html_file, $rol);
-       
-       return trim($rol[1]);
-    }
-    
-    public function fondodepeliculaleatorio($idpelicula){
-        $backdrops=$this->htmltojson("https://api.themoviedb.org/3/movie/".$idpelicula."/images?api_key=3f533c5423eaf11962eb53403fccff33")["backdrops"];
+    public function conocidopor($id)
+    {
+        $html_file = file_get_contents("https://www.themoviedb.org/person/" . $id);
         
-        $fondo=array_rand($backdrops,1);
+        preg_match('/<p><strong><bdi>Known For<\/bdi><\/strong>(.*)<\/p>/', $html_file, $rol);
+        
+        return trim($rol[1]);
+    }
+
+    public function fondodepeliculaleatorio($idpelicula)
+    {
+        $backdrops = $this->htmltojson("https://api.themoviedb.org/3/movie/" . $idpelicula . "/images?api_key=3f533c5423eaf11962eb53403fccff33")["backdrops"];
+        
+        $fondo = array_rand($backdrops, 1);
         
         return $backdrops[$fondo];
-    
     }
-   
 
     public function ordenaraleatorio()
     {
@@ -51,7 +51,6 @@ class Utilidades
         return $ficheros;
     }
 
- 
     public function sexo($sexo, $solosimbolo)
     {
         if ($sexo == 2) {
@@ -94,7 +93,7 @@ class Utilidades
     }
 }
 /*
-$u=new Utilidades();
-
-*/
+ * $u=new Utilidades();
+ *
+ */
 ?>
