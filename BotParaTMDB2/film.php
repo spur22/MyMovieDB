@@ -149,7 +149,7 @@ $fondo = $ut->fondodepeliculaleatorio($_GET["id"]);
 					<i class="ion-loop"></i>
 				</div><?php } ?><br>
 				<div class="debajoimagen">
-					<a href="#" class="seven"><i class="ion-edit"></i></a>
+					<a href="edit.php?id=<?php echo $_GET["id"] ?>" class="seven"><i class="ion-edit"></i></a>
 				</div>
 				<br>
 			</div>

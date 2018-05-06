@@ -175,7 +175,7 @@ $fondo=$ut->ordenaraleatorio();
                     sizes="(max-width: 1000px) 100vw, 1000px" alt="Film Cover"></p>
                 </div> <!-- end contactis-info -->
                 <div class="debajoimagen"><div class="form-field">
-						<input name="link" type="text" id="link" placeholder="Denmark"
+						<input name="link" type="text" id="link" placeholder="<?php echo $utp->dosletrasaentero($datos["pais"]) ?>"
 							value="" minlength="2" required="" aria-required="true"
 							class="full-width">
 					</div></div><br>
@@ -185,7 +185,7 @@ $fondo=$ut->ordenaraleatorio();
 							class="full-width">
 					</div></div><br>
 				<div class="debajoimagen"><div class="form-field">
-						<input name="link" type="text" id="link" placeholder="<?php echo $ut->minutosahoras($datos["duracion"]); ?>"
+						<input name="link" type="text" id="link" placeholder="<?php echo $datos["duracion"]; ?>"
 							value="" minlength="2" required="" aria-required="true"
 							class="full-width">
 					</div></div><br>
