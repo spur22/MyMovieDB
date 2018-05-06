@@ -113,7 +113,7 @@ if (! isset($_POST["edit"])) {
 					<div class="debajoimagen3">
 						<div class="form-field">
 							<input name="link" type="text" id="link"
-								placeholder="LARS VON TRIER" value="" minlength="2" required=""
+								placeholder="Director" value="" minlength="2" required=""
 								aria-required="true" class="full-width">
 						</div>
 					</div>
@@ -122,7 +122,7 @@ if (! isset($_POST["edit"])) {
 					<div class="debajoimagen3">
 						<div class="form-field">
 							<input name="link" type="text" id="link"
-								placeholder="LARS VON TRIER" value="" minlength="2" required=""
+								placeholder="Screenwriter" value="" minlength="2" required=""
 								aria-required="true" class="full-width">
 						</div>
 					</div>
@@ -131,7 +131,7 @@ if (! isset($_POST["edit"])) {
 					<div class="debajoimagen3">
 						<div class="form-field">
 							<input name="link" type="text" id="link"
-								placeholder="LARS VON TRIER" value="" minlength="2" required=""
+								placeholder="Music" value="" minlength="2" required=""
 								aria-required="true" class="full-width">
 						</div>
 					</div>
@@ -140,19 +140,19 @@ if (! isset($_POST["edit"])) {
 					<div class="debajoimagen3">
 						<div class="form-field">
 							<input name="link" type="text" id="link"
-								placeholder="LARS VON TRIER" value="" minlength="2" required=""
+								placeholder="Cinematography" value="" minlength="2" required=""
 								aria-required="true" class="full-width">
 						</div>
 					</div>
 					<br>
-					<div class="debajoimagen2">cast:</div>
+					<div class="debajoimagen2">Cast:</div>
 					<div class="debajoimagen3"><?php echo $bd->personaspelicula($_GET["id"], "peliculasactores", "id_actor"); ?></div>
 						<BR>
-					<div class="debajoimagen2">watched:</div>
+					<div class="debajoimagen2">Watched:</div>
 					<div class="debajoimagen3">
 						<div class="form-field">
 							<input name="link" type="text" id="link"
-								placeholder="LARS VON TRIER" value="" minlength="2" required=""
+								placeholder="Date" value="" minlength="2" required=""
 								aria-required="true" class="full-width">
 						</div>
 					</div>
