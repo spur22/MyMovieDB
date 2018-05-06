@@ -171,6 +171,9 @@ $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . 
 				<div class="debajoimagen"><?php if (!empty($datos["birthday"])) { echo $ut->fechaesp($datos["birthday"]); } ?></div>
 				<br>
 				<div class="debajoimagen"><?php if (!is_null($datos["deathday"])) { echo $ut->fechaesp($datos["deathday"]); } ?></div>
+				<div class="debajoimagen">
+				<a href="edit.php?id=<?php echo $_GET["id"] ?>" class="seven"><i class="ion-edit"></i></a>
+				</div>
 			</div>
 			<!-- end contactis-secondary -->
 
