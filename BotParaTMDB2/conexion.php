@@ -117,8 +117,9 @@ class BaseDeDatos extends mysqli
         
         return $this->mostrararray($datos);
     }
-    
-    public function peliculasdepersona($idpersona, $rol){
+
+    public function peliculasdepersona($idpersona, $rol)
+    {
         $datos = array();
         
         $tabla = "";
@@ -155,13 +156,12 @@ class BaseDeDatos extends mysqli
         
         return $datos;
     }
-    
-    public function fondodepeliculadepersona($idpersona, $rol){
-        $peliculas=$this->peliculasdepersona($idpersona, $rol);
+
+    public function fondodepeliculadepersona($idpersona, $rol)
+    {
+        $peliculas = $this->peliculasdepersona($idpersona, $rol);
         shuffle($peliculas);
         return $this->ut->fondodepeliculaleatorio($peliculas[0]);
-        
-        
     }
 
     public function peliculasdepersonarol($idpersona, $rol)
@@ -336,13 +336,13 @@ class BaseDeDatos extends mysqli
 
     public function ranking($tabla, $id_tabla, $plus, $general)
     {
-        $fechastitulos="";
-        $igualartablas="";
-        if (!$general){
-            $fechastitulos="fechastitulos,";
-            $igualartablas="fechastitulos.id_titulo=titulopelicula.id_pelicula and";
+        $fechastitulos = "";
+        $igualartablas = "";
+        if (! $general) {
+            $fechastitulos = "fechastitulos,";
+            $igualartablas = "fechastitulos.id_titulo=titulopelicula.id_pelicula and";
         }
-        $cons = $this->query("SELECT *,COUNT(*) as con FROM persona,".$fechastitulos."titulopelicula," . $tabla . " WHERE ".$igualartablas." persona.id_persona=" . $tabla . "." . $id_tabla . " and titulopelicula.id_pelicula=" . $tabla . ".id_pelicula " . $plus . " GROUP BY persona.id_persona ORDER BY con DESC LIMIT 10");
+        $cons = $this->query("SELECT *,COUNT(*) as con FROM persona," . $fechastitulos . "titulopelicula," . $tabla . " WHERE " . $igualartablas . " persona.id_persona=" . $tabla . "." . $id_tabla . " and titulopelicula.id_pelicula=" . $tabla . ".id_pelicula " . $plus . " GROUP BY persona.id_persona ORDER BY con DESC LIMIT 10");
         while ($rows = $cons->fetch_assoc()) {
             ?>
 <tr>
@@ -354,22 +354,21 @@ class BaseDeDatos extends mysqli
         }
     }
 
-    public function ultimas10($año){
-        
-        $cons = $this->query("SELECT id_pelicula,titulo_original,fecha FROM fechastitulos,titulopelicula WHERE fechastitulos.id_titulo=titulopelicula.id_pelicula and año=".$año." ORDER BY fecha DESC LIMIT 10");
+    public function ultimas10($año)
+    {
+        $cons = $this->query("SELECT id_pelicula,titulo_original,fecha FROM fechastitulos,titulopelicula WHERE fechastitulos.id_titulo=titulopelicula.id_pelicula and año=" . $año . " ORDER BY fecha DESC LIMIT 10");
         while ($rows = $cons->fetch_assoc()) {
             
-        ?>
-        <tr>
-        <td class="one"><a
-        class="seven" href="film.php?id=<?php echo $rows["id_pelicula"] ?>"
-    class="three"><?php echo $rows["titulo_original"] ?></a></td>
-    <td class="one"><?php echo $rows["fecha"] ?></td>
-    </tr>
-    <?php 
+            ?>
+<tr>
+	<td class="one"><a class="seven"
+		href="film.php?id=<?php echo $rows["id_pelicula"] ?>" class="three"><?php echo $rows["titulo_original"] ?></a></td>
+	<td class="one"><?php echo $rows["fecha"] ?></td>
+</tr>
+<?php
+        }
     }
-    }
-    
+
     public function datoshaceunaño()
     {
         $todaslaspelis = array();

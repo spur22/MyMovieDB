@@ -8,7 +8,7 @@ include_once "utilidades.php";
 include_once "utilidadespaises.php";
 $bd = new BaseDeDatos();
 $ut = new Utilidades();
-$rol=$ut->conocidopor($_GET["id"]);
+$rol = $ut->conocidopor($_GET["id"]);
 
 $fondo = $bd->fondodepeliculadepersona($_GET["id"], $rol);
 
@@ -156,23 +156,28 @@ $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . 
 			<div class="contactis-secondary">
 				<div class="contactis-info">
 					<p>
-						<img src="https://image.tmdb.org/t/p/w500
+						<img
+							src="https://image.tmdb.org/t/p/w500
 							<?php echo $datos["profile_path"]  ?>"
 							srcset="https://image.tmdb.org/t/p/w500
-							<?php echo $datos["profile_path"]  ?>", 
+							<?php echo $datos["profile_path"]  ?>"
+							, 
                     <?php echo $datos["profile_path"] ?> 500w"
                     sizes="(max-width: 1000px) 100vw, 1000px"
 							alt="Film Cover">
 					</p>
 				</div>
 				<!-- end contactis-info -->
-				<div class="debajoimagen"><a href="#"><?php echo $utp->nacimientopais($datos["place_of_birth"]) ?></a></div>
+				<div class="debajoimagen">
+					<a href="#"><?php echo $utp->nacimientopais($datos["place_of_birth"]) ?></a>
+				</div>
 				<br>
 				<div class="debajoimagen"><?php if (!empty($datos["birthday"])) { echo $ut->fechaesp($datos["birthday"]); } ?></div>
 				<br>
 				<div class="debajoimagen"><?php if (!is_null($datos["deathday"])) { echo $ut->fechaesp($datos["deathday"]); } ?></div>
 				<div class="debajoimagen">
-				<a href="edit.php?id=<?php echo $_GET["id"] ?>" class="seven"><i class="ion-edit"></i></a>
+					<a href="edit.php?id=<?php echo $_GET["id"] ?>" class="seven"><i
+						class="ion-edit"></i></a>
 				</div>
 			</div>
 			<!-- end contactis-secondary -->
