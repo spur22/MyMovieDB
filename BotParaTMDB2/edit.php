@@ -9,7 +9,7 @@ include_once "utilidadespaises.php";
 $bd=new BaseDeDatos();
 $ut=new Utilidades();
 $utp=new UtilidadesPaises();
-
+if (!isset($_POST["edit"])){
 $datos=$bd->datospelicula($_GET["id"]);
 $fondo=$ut->ordenaraleatorio();
 ?>
@@ -22,6 +22,7 @@ $fondo=$ut->ordenaraleatorio();
     ================================================== -->
     <meta charset="utf-8">
     <title>MyMovieDB | Edit " <?php echo $datos["titulo_original"]; ?> "</title>
+    <form name="edit" id="edit" method="post" action=""	novalidate="novalidate">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -78,13 +79,13 @@ $fondo=$ut->ordenaraleatorio();
         <div class="row section-header" data-aos="fade-up">
             <div class="col-full">
                 <h1 class="display-2 display-2--light"><div class="form-field">
-						<input name="link" type="text" id="link" placeholder="<?php echo $datos["titulo_original"]; ?>"
-							value="" minlength="2" required="" aria-required="true"
+						<input name="titulo" type="text" id="titulo" placeholder="Original Title"
+							value="<?php echo $datos["titulo_original"]; ?>" minlength="2" required="" aria-required="true"
 							class="full-width">
 					</div></h1>
 				<div class="fuet"><div class="form-field">
-						<input name="link" type="text" id="link" placeholder="<?php echo $datos["tagline"]  ?>"
-							value="" minlength="2" required="" aria-required="true"
+						<input name="tagline" type="text" id="tagline" placeholder="Tagline"
+							value="<?php echo $datos["tagline"]  ?>" minlength="2" required="" aria-required="true"
 							class="full-width">
 					</div></div>
             </div>
@@ -151,7 +152,7 @@ $fondo=$ut->ordenaraleatorio();
 							value="" minlength="2" required="" aria-required="true"
 							class="full-width">
 					</div></div><Br>
-					<button class="full-width btn--primary" name="insertfilm"
+					<button class="full-width btn--primary" name="edit"
 							type="submit">SAVE</button><BR>
 							<button class="full-width btn--rafa" name="insertfilm"
 							type="submit">DELETE film</button>
@@ -175,18 +176,18 @@ $fondo=$ut->ordenaraleatorio();
                     sizes="(max-width: 1000px) 100vw, 1000px" alt="Film Cover"></p>
                 </div> <!-- end contactis-info -->
                 <div class="debajoimagen"><div class="form-field">
-						<input name="link" type="text" id="link" placeholder="<?php echo $utp->dosletrasaentero($datos["pais"]) ?>"
-							value="" minlength="2" required="" aria-required="true"
+						<input name="pais" type="text" id="pais" placeholder="Country"
+							value="<?php echo $utp->dosletrasaentero($datos["pais"]) ?>" minlength="2" required="" aria-required="true"
 							class="full-width">
 					</div></div><br>
 				<div class="debajoimagen"><div class="form-field">
-						<input name="link" type="text" id="link" placeholder="<?php echo $datos["año"]; ?>"
-							value="" minlength="2" required="" aria-required="true"
+						<input name="año" type="text" id="año" placeholder="Year"
+							value="<?php echo $datos["año"]; ?>" minlength="2" required="" aria-required="true"
 							class="full-width">
 					</div></div><br>
 				<div class="debajoimagen"><div class="form-field">
-						<input name="link" type="text" id="link" placeholder="<?php echo $datos["duracion"]; ?>"
-							value="" minlength="2" required="" aria-required="true"
+						<input name="duracion" type="text" id="duracion" placeholder="Length"
+							value="<?php echo $datos["duracion"]; ?>" minlength="2" required="" aria-required="true"
 							class="full-width">
 					</div></div><br>
 				<div class="debajoimagen"><div class="form-field">
@@ -199,7 +200,7 @@ $fondo=$ut->ordenaraleatorio();
         </div> <!-- end contactis-content -->
 
     </section> <!-- end s-contactis -->
-
+</form>
     <!-- footer
     ================================================== -->
     <footer>
@@ -285,3 +286,11 @@ $fondo=$ut->ordenaraleatorio();
 </body>
 
 </html>
+<?php 
+}else{
+    $bd->query("UPDATE titulopelicula SET titulo_original='".$_POST["titulo"]."', tagline='".$_POST["tagline"]."', duracion='".$_POST["duracion"]."', pais='".$utp->codigopais($_POST["pais"])."' WHERE id_pelicula=".$_GET["id"]);
+    header("Location:film.php?id=".$_GET["id"]);
+    
+}
+
+?>
