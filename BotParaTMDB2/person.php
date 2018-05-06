@@ -118,7 +118,6 @@ $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . 
 			<div class="contactis-primary">
 				<form name="contactisForm" id="contactisForm" method="post"
 					action="" novalidate="novalidate">
-					<br>
 					<div class="debajoimagen2">role:</div>
 					<div class="debajoimagen3"><?php echo $rol; ?></div>
 					<br>
@@ -175,7 +174,7 @@ $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . 
 				<div class="debajoimagen"><?php if (!empty($datos["birthday"])) { echo $ut->fechaesp($datos["birthday"]); } ?></div>
 				<br>
 				<div class="debajoimagen"><?php if (!is_null($datos["deathday"])) { echo $ut->fechaesp($datos["deathday"]); } ?></div>
-				<div class="debajoimagen">
+				<br><div class="debajoimagen">
 					<a href="editperson.php?id=<?php echo $_GET["id"] ?>" class="seven"><i
 						class="ion-edit"></i></a>
 				</div>

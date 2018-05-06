@@ -9,9 +9,9 @@ include_once "utilidadespaises.php";
 $bd = new BaseDeDatos();
 $ut = new Utilidades();
 $utp = new UtilidadesPaises();
-$fondo = $ut->fondodepeliculaleatorio($_GET["id"]);
 if (! isset($_POST["edit"])) {
     $datos = $bd->datospelicula($_GET["id"]);
+    $fondo = $ut->ordenaraleatorio();
     ?>
 <html class="no-js" lang="en">
 <!--<![endif]-->
@@ -77,10 +77,9 @@ if (! isset($_POST["edit"])) {
     ================================================== -->
 	<section id="contactis" class="s-contactis target-section"
 		data-parallax="scroll"
-		data-image-src="https://image.tmdb.org/t/p/original<?php echo $fondo["file_path"]; ?>"
-		data-natural-width=<?php echo $fondo["width"] ?>
-		data-natural-height=<?php echo $fondo["height"] ?>
-		data-position-y=center>
+		data-image-src="images/bg/<?php echo $fondo[0]; ?>"
+		data-natural-width=1920 data-natural-height=1080
+		data-position-y=center">
 
 		<div class="overlay"></div>
 
@@ -110,44 +109,20 @@ if (! isset($_POST["edit"])) {
 				<form name="contactisForm" id="contactisForm" method="post"
 					action="" novalidate="novalidate">
 					<div class="debajoimagen2">Director:</div>
-					<div class="debajoimagen3">
-						<div class="form-field">
-							<input name="link" type="text" id="link"
-								placeholder="Director" value="" minlength="2" required=""
-								aria-required="true" class="full-width">
-						</div>
-					</div>
+					<div class="debajoimagen3"><?php echo $bd->personaspelicula($_GET["id"], "titulosdirectores", "id_director"); ?></div>
 					<br>
 					<div class="debajoimagen2">Screenwriter:</div>
-					<div class="debajoimagen3">
-						<div class="form-field">
-							<input name="link" type="text" id="link"
-								placeholder="Screenwriter" value="" minlength="2" required=""
-								aria-required="true" class="full-width">
-						</div>
-					</div>
+					<div class="debajoimagen3"><?php echo $bd->personaspelicula($_GET["id"], "peliculasguionistas", "id_guionista"); ?></div>
 					<br>
 					<div class="debajoimagen2">Music:</div>
-					<div class="debajoimagen3">
-						<div class="form-field">
-							<input name="link" type="text" id="link"
-								placeholder="Music" value="" minlength="2" required=""
-								aria-required="true" class="full-width">
-						</div>
-					</div>
+					<div class="debajoimagen3"><?php echo $bd->personaspelicula($_GET["id"], "peliculasmusicos", "id_musico"); ?></div>
 					<br>
 					<div class="debajoimagen2">Cinematography:</div>
-					<div class="debajoimagen3">
-						<div class="form-field">
-							<input name="link" type="text" id="link"
-								placeholder="Cinematography" value="" minlength="2" required=""
-								aria-required="true" class="full-width">
-						</div>
-					</div>
+					<div class="debajoimagen3"><?php echo $bd->personaspelicula($_GET["id"], "peliculasfotografos", "id_foto"); ?></div>
 					<br>
-					<div class="debajoimagen2">Cast:</div>
+					<div class="debajoimagen2">cast:</div>
 					<div class="debajoimagen3"><?php echo $bd->personaspelicula($_GET["id"], "peliculasactores", "id_actor"); ?></div>
-						<BR>
+					<br>
 					<div class="debajoimagen2">Watched:</div>
 					<div class="debajoimagen3">
 						<div class="form-field">
