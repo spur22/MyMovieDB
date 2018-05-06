@@ -8,6 +8,10 @@ include_once "utilidades.php";
 include_once "utilidadespaises.php";
 $bd = new BaseDeDatos();
 $ut = new Utilidades();
+$rol=$ut->conocidopor($_GET["id"]);
+
+$fondo = $bd->fondodepeliculadepersona($_GET["id"], $rol);
+
 $utp = new UtilidadesPaises();
 $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . "?api_key=3f533c5423eaf11962eb53403fccff33&language=en-US");
 
@@ -95,8 +99,10 @@ $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . 
 	<!-- home
     ================================================== -->
 	<section id="contactis" class="s-contactis target-section"
-		data-parallax="scroll" data-image-src="images/bg/<?php echo $ut->ordenaraleatorio()[0] ?>"
-		data-natural-width=1920 data-natural-height=1080
+		data-parallax="scroll"
+		data-image-src="https://image.tmdb.org/t/p/original<?php echo $fondo["file_path"]; ?>"
+		data-natural-width=<?php echo $fondo["width"] ?>
+		data-natural-height=<?php echo $fondo["height"] ?>
 		data-position-y=center">
 
 		<div class="overlay"></div>
@@ -114,7 +120,7 @@ $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . 
 					action="" novalidate="novalidate">
 					<br>
 					<div class="debajoimagen2">role:</div>
-					<div class="debajoimagen3"><?php $rol=$ut->conocidopor($_GET["id"]); echo $rol; ?></div>
+					<div class="debajoimagen3"><?php echo $rol; ?></div>
 					<br>
 					<div class="debajoimagen2">gender:</div>
 					<div class="debajoimagen3"><?php $ut->sexo($datos["gender"], false); ?></div>

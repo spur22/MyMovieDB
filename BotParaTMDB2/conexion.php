@@ -117,6 +117,52 @@ class BaseDeDatos extends mysqli
         
         return $this->mostrararray($datos);
     }
+    
+    public function peliculasdepersona($idpersona, $rol){
+        $datos = array();
+        
+        $tabla = "";
+        $id_tabla = "";
+        switch ($rol) {
+            case "Acting":
+                $tabla = "peliculasactores";
+                $id_tabla = "id_actor";
+                break;
+            case "Directing":
+                $tabla = "titulosdirectores";
+                $id_tabla = "id_director";
+                break;
+            case "Writing":
+                $tabla = "peliculasguionistas";
+                $id_tabla = "id_guionista";
+                break;
+            case "Camera":
+                $tabla = "peliculasfotografos";
+                $id_tabla = "id_foto";
+                break;
+            default:
+                $tabla = "peliculasactores";
+                $id_tabla = "id_actor";
+                break;
+        }
+        $cons = "SELECT titulopelicula.id_pelicula,titulo_original FROM titulopelicula," . $tabla . " WHERE titulopelicula.id_pelicula=" . $tabla . ".id_pelicula and " . $tabla . "." . $id_tabla . "=" . $idpersona;
+        
+        $cont = $this->query($cons);
+        
+        while ($rows = $cont->fetch_assoc()) {
+            array_push($datos, $rows["id_pelicula"]);
+        }
+        
+        return $datos;
+    }
+    
+    public function fondodepeliculadepersona($idpersona, $rol){
+        $peliculas=$this->peliculasdepersona($idpersona, $rol);
+        shuffle($peliculas);
+        return $this->ut->fondodepeliculaleatorio($peliculas[0]);
+        
+        
+    }
 
     public function peliculasdepersonarol($idpersona, $rol)
     {
