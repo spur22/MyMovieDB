@@ -11,7 +11,7 @@ $ut=new Utilidades();
 $utp=new UtilidadesPaises();
 
 $datos=$bd->datospelicula($_GET["id"]);
-$fondo=$ut->ordenaraleatorio();
+$fondo=$ut->fondodepeliculaleatorio($_GET["id"]);
 ?>
 <html class="no-js" lang="en">
 <!--<![endif]-->
@@ -71,7 +71,7 @@ $fondo=$ut->ordenaraleatorio();
 
     <!-- home
     ================================================== -->
-<section id="contactis" class="s-contactis target-section" data-parallax="scroll" data-image-src="images/bg/<?php echo $fondo[0]; ?>" data-natural-width=1920 data-natural-height=1080 data-position-y=center">
+<section id="contactis" class="s-contactis target-section" data-parallax="scroll" data-image-src="https://image.tmdb.org/t/p/original<?php echo $fondo["file_path"]; ?>" data-natural-width=<?php echo $fondo["width"] ?> data-natural-height=<?php echo $fondo["height"] ?> data-position-y=center">
 
         <div class="overlay"></div>
 

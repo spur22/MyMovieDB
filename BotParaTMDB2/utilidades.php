@@ -31,7 +31,14 @@ class Utilidades
        return trim($rol[1]);
     }
     
+    public function fondodepeliculaleatorio($idpelicula){
+        $backdrops=$this->htmltojson("https://api.themoviedb.org/3/movie/".$idpelicula."/images?api_key=3f533c5423eaf11962eb53403fccff33")["backdrops"];
+        
+        $fondo=array_rand($backdrops,1);
+        
+        return $backdrops[$fondo];
     
+    }
    
 
     public function ordenaraleatorio()
