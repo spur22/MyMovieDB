@@ -147,7 +147,7 @@ $fondo = $ut->fondodepeliculaleatorio($_GET["id"]);
 				<br>
 				<?php if ($bd->rewatch($_GET["id"])){ ?><div class="debajoimagen">
 					<i class="ion-loop"></i>
-				</div><?php } ?><br>
+				</div><?php } ?>
 				<div class="debajoimagen">
 					<a href="edit.php?id=<?php echo $_GET["id"] ?>" class="seven"><i class="ion-edit"></i></a>
 				</div>
