@@ -8,7 +8,7 @@ class UtilidadesPaises
         if ($dosletras == "__") {
             $imagenfinal = "";
         } else {
-            $imagenfinal = "<a href=country.php?c=" . $dosletras . "><img src='flags/blank.gif' class='flag flag-" . $dosletras . "'  title='" . $this->dosletrasaentero($dosletras) . "' ></a>";
+            $imagenfinal = "<img src='flags/blank.gif' class='flag flag-" . $dosletras . "'  title='" . $dosletras . "' >";
         }
         return $imagenfinal;
     }
@@ -17,6 +17,33 @@ class UtilidadesPaises
     {
         $paisentero = "";
         switch ($dosletras) {
+            case "ro":
+                $paisentero = "Romania";
+                break;
+            case "ma":
+                $paisentero = "Morocco";
+                break;
+            case "il":
+                $paisentero = "Israel";
+                break;
+            case "gr":
+                $paisentero = "Greece";
+                break;
+            case "co":
+                $paisentero = "Colombia";
+                break;
+            case "ci":
+                $paisentero = "Ivory Coast";
+                break;
+            case "hr":
+                $paisentero = "Croatia";
+                break;
+            case "cr":
+                $paisentero = "Costa Rica";
+                break;
+            case "no":
+                $paisentero = "Norway";
+                break;
             case "au":
                 $paisentero = "Australia";
                 break;
@@ -101,6 +128,33 @@ class UtilidadesPaises
     {
         $dosletras = "__";
         switch ($paisentero) {
+            case "Romania":
+                $dosletras = "ro";
+                break;
+            case "Morocco":
+                $dosletras = "ma";
+                break;
+            case "Israel":
+                $dosletras = "il";
+                break;
+            case "Greece":
+                $dosletras = "gr";
+                break;
+            case "Colombia":
+                $dosletras = "co";
+                break;
+            case "Ivory Coast":
+                $dosletras = "ci";
+                break;
+            case "Croatia":
+                $dosletras = "hr";
+                break;
+            case "Costa Rica":
+                $dosletras = "cr";
+                break;
+            case "Norway":
+                $dosletras = "no";
+                break;
             case "Australia":
                 $dosletras = "au";
                 break;
