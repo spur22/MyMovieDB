@@ -276,9 +276,9 @@ $paisentero = $utp->dosletrasaentero($pais);
 		<div class="home-content">
 
 			<div class="row home-content__main">
-						<div class="salami"><section id="add">FILMS</section></div><BR>
+						<div class="salami"><section id="add" data-aos="fade-up">FILMS</section></div><BR>
 
-<table>
+<table data-aos="fade-up">
 	<thead>
 		<tr>
 			<td class="two">Film</td>
