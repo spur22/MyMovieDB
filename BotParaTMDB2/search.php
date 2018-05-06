@@ -39,7 +39,7 @@ class Search
 	<thead>
 		<tr>
 			<td class="two"><?php echo $tr1; ?></td>
-			<td class="two"><a href=year.php?a=<?php echo $tr2; ?></a></td>
+			<td class="two"><?php echo $tr2; ?></td>
 			<td class="two">Edit</td>
 		</tr>
 	</thead>
@@ -54,7 +54,7 @@ class Search
 			<td class="one"><a
 				href="<?php if ($tipo==1) {echo "film"; }else{ echo "person"; } ?>.php?id=<?php echo $rows[0]; ?>"
 				class="three"><?php echo $rows[1] ?></a></td>
-			<td class="one"><?php if ($tipo==2){$this->ut->sexo($rows[2], true);}else{echo $rows[2];} ?></td>
+			<td class="one"><?php if ($tipo==2){$this->ut->sexo($rows[2], true);}else{echo "<a href=year.php?a=".$rows[2].">".$rows[2]."</a>";} ?></td>
 			<td class="one"><a href="#" class="three"><i class="ion-edit"></i></a></td>
 		</tr>
 		
