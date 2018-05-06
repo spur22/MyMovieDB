@@ -9,10 +9,6 @@ include_once "utilidadespaises.php";
 $bd = new BaseDeDatos();
 $ut = new Utilidades();
 $utp = new UtilidadesPaises();
-$rol = $ut->conocidopor($_GET["id"]);
-
-$fondo = $bd->fondodepeliculadepersona($_GET["id"], $rol);
-
 $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . "?api_key=3f533c5423eaf11962eb53403fccff33&language=en-US");
 
 ?>
@@ -99,11 +95,10 @@ $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . 
 	<!-- home
     ================================================== -->
 	<section id="contactis" class="s-contactis target-section"
-		data-parallax="scroll"
-		data-image-src="https://image.tmdb.org/t/p/original<?php echo $fondo["file_path"]; ?>"
-		data-natural-width=<?php echo $fondo["width"] ?>
-		data-natural-height=<?php echo $fondo["height"] ?>
+		data-parallax="scroll" data-image-src="images/bg/<?php echo $ut->ordenaraleatorio()[0] ?>"
+		data-natural-width=1920 data-natural-height=1080
 		data-position-y=center">
+
 		<div class="overlay"></div>
 
 		<div class="row section-header" data-aos="fade-up">
@@ -121,59 +116,6 @@ $datos = $ut->htmltojson("https://api.themoviedb.org/3/person/" . $_GET["id"] . 
 			<div class="contactis-primary">
 				<form name="contactisForm" id="contactisForm" method="post"
 					action="" novalidate="novalidate">
-					<br>
-					<div class="debajoimagen2">role:</div>
-					<div class="debajoimagen3"><div class="form-field">
-						<input name="link" type="text" id="link" placeholder="<?php $rol=$ut->conocidopor($_GET["id"]); echo $rol; ?>"
-							value="" minlength="2" required="" aria-required="true"
-							class="full-width">
-					</div></div>
-					<br>
-					<div class="debajoimagen2">GENDER:</div>
-					<div class="debajoimagen3"><div class="form-field">
-						<input name="link" type="text" id="link" placeholder="MALE"
-							value="" minlength="2" required="" aria-required="true"
-							class="full-width">
-					</div></div>
-					<br>
-					<div class="debajoimagen2">known for:</div>
-					<div class="debajoimagen3"><div class="form-field">
-						<input name="link" type="text" id="link" placeholder="A"
-							value="" minlength="2" required="" aria-required="true"
-							class="full-width">
-					</div><BR>
-					<div class="form-field">
-						<input name="link" type="text" id="link" placeholder="B"
-							value="" minlength="2" required="" aria-required="true"
-							class="full-width">
-					</div><BR>
-					<div class="form-field">
-						<input name="link" type="text" id="link" placeholder="C"
-							value="" minlength="2" required="" aria-required="true"
-							class="full-width">
-					</div><BR>
-					<div class="form-field">
-						<input name="link" type="text" id="link" placeholder="D"
-							value="" minlength="2" required="" aria-required="true"
-							class="full-width">
-					</div><BR>
-					<div class="form-field">
-						<input name="link" type="text" id="link" placeholder="E"
-							value="" minlength="2" required="" aria-required="true"
-							class="full-width">
-					</div></div>
-					<br>
-					<div class="debajoimagen2">you've watched:</div>
-					<div class="debajoimagen3">
-						<ul class="skill-bars">
-							<li>
-							<?php $por=$bd->peliculasexternaspersona($_GET["id"], $rol); ?>
-								<div class="progress percent<?php echo $por; ?>">
-									<span><?php echo $por; ?>%</span>
-								</div>
-							</li>
-						</ul>
-					</div><BR>
 					<button class="full-width btn--primary" name="insertfilm"
 							type="submit">SAVE</button><BR>
 							<button class="full-width btn--rafa" name="insertfilm"
