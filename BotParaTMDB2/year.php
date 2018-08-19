@@ -1,4 +1,4 @@
-<?php ob_start(); ?>
+﻿<?php ob_start(); ?>
 <!DOCTYPE html>
 <!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
@@ -273,7 +273,7 @@ $n = $a->ordenaraleatorio();
 		</tr>
 	</thead>
 	<tbody>
-	 <?php $bd->ultimas10($año); ?>
+	 <?php $bd->ultimas10($año, "año"); ?>
 	</tbody>
 </table>
 			</div>

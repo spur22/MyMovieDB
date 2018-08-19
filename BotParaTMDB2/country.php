@@ -278,59 +278,17 @@ $paisentero = $utp->dosletrasaentero($pais);
 			<div class="row home-content__main">
 						<div class="salami"><section id="add" data-aos="fade-up">FILMS</section></div><BR>
 
-<table data-aos="fade-up">
-	<thead>
-		<tr>
-			<td class="two">Film</td>
-			<td class="two">Date</td>
-		</tr>
-	</thead>
-	<tbody>
-	        		<tr>
-			<td class="one"><a
-				href="#"
-				class="seven">Lady Bird</a></td>
-			<td class="one">2018/02/25</td>
-		</tr>
-		
-				<tr>
-			<td class="one"><a
-				href="#"
-				class="seven">Moonlight</a></td>
-			<td class="one">2018/02/25</td>
-		</tr>
-		
-				<tr>
-			<td class="one"><a
-				href="#"
-				class="seven">The Lord of the Rings</a></td>
-			<td class="one">2018/02/25</td>
-		</tr>
-		
-				<tr>
-			<td class="one"><a
-				href="#"
-				class="seven">13</a></td>
-			<td class="one">2018/02/25</td>
-		</tr>
-		
-				<tr>
-			<td class="one"><a
-				href="#"
-				class="seven">Get Out</a></td>
-			<td class="one">2018/02/25</td>
-		</tr>
-		
-				<tr>
-			<td class="one"><a
-				href="#"
-				class="seven">Mad Max: Fury Road</a></td>
-			<td class="one">2018/02/25</td>
-		</tr>
-		
-		 
-	</tbody>
-</table>
+					<table>
+						<thead>
+							<tr>
+								<td><h4>Film</h4></td>
+								<td><h4>Date</h4></td>
+							</tr>
+						</thead>
+						<tbody>
+							<?php $bd->ultimas10($pais, "pais"); ?>
+						</tbody>
+					</table>
 			</div>
 			<!-- end home-content -->
 	

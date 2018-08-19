@@ -85,22 +85,26 @@ class BaseDeDatos extends mysqli
     {
         $arraypersona = $this->ut->htmltojson("https://api.themoviedb.org/3/person/" . $id . "/combined_credits?api_key=3f533c5423eaf11962eb53403fccff33&language=en-US");
         $array = array();
-        if ($rol == "Acting") {
-            $cantidad = $this->contar("peliculasactores", "id_actor=" . $id);
-            $total = count($arraypersona["cast"]);
-        } else if ($rol == "Directing") {
-            $cantidad = $this->contar("titulosdirectores", "id_director=" . $id);
+        
+        
+        switch ($rol){
+            case "Acting" : $cantidad = $this->contar("peliculasactores", "id_actor=" . $id);
+                            $total = count($arraypersona["cast"]);
+                            break;
+            case "Directing":  $cantidad = $this->contar("titulosdirectores", "id_director=" . $id);
             $total = $this->valorarrayasociativo($rol, $arraypersona["crew"]);
-        } else if ($rol == "Sound") {
-            $cantidad = $this->contar("peliculasmusicos", "id_musico=" . $id);
+            break;
+            case "Sound":        $cantidad = $this->contar("peliculasmusicos", "id_musico=" . $id);
+            $total = $this->valorarrayasociativo($rol, $arraypersona["crew"]); break;
+            case "Camera":             $cantidad = $this->contar("peliculasfotografos", "id_foto=" . $id);
+            $total = $this->valorarrayasociativo($rol, $arraypersona["crew"]); break;
+            case "Writing":            $cantidad = $this->contar("peliculasguionistas", "id_guionista=" . $id);
+            $total = $this->valorarrayasociativo($rol, $arraypersona["crew"]); break;
+            default: $cantidad = $this->contar("titulosdirectores", "id_director=" . $id);
             $total = $this->valorarrayasociativo($rol, $arraypersona["crew"]);
-        } else if ($rol == "Camera") {
-            $cantidad = $this->contar("peliculasfotografos", "id_foto=" . $id);
-            $total = $this->valorarrayasociativo($rol, $arraypersona["crew"]);
-        } else if ($rol == "Writing") {
-            $cantidad = $this->contar("peliculasguionistas", "id_guionista=" . $id);
-            $total = $this->valorarrayasociativo($rol, $arraypersona["crew"]);
+            break;
         }
+        
         
         $porcentaje = ($cantidad / $total) * 100;
         return ltrim(number_format($porcentaje, 0));
@@ -159,9 +163,15 @@ class BaseDeDatos extends mysqli
 
     public function fondodepeliculadepersona($idpersona, $rol)
     {
+        
+        if ($rol=="Acting"||$rol=="Directing"||$rol=="Writing"||$rol=="Camera"){
         $peliculas = $this->peliculasdepersona($idpersona, $rol);
         shuffle($peliculas);
-        return $this->ut->fondodepeliculaleatorio($peliculas[0]);
+        
+        return $this->ut->fondodepeliculaleatorio($peliculas[0]);}
+        else{
+            $this->ut->ordenaraleatorio();
+        }
     }
 
     public function peliculasdepersonarol($idpersona, $rol)
@@ -354,9 +364,9 @@ class BaseDeDatos extends mysqli
         }
     }
 
-    public function ultimas10($año)
+    public function ultimas10($dato, $columna)
     {
-        $cons = $this->query("SELECT id_pelicula,titulo_original,fecha FROM fechastitulos,titulopelicula WHERE fechastitulos.id_titulo=titulopelicula.id_pelicula and año=" . $año . " ORDER BY fecha DESC LIMIT 10");
+        $cons = $this->query("SELECT id_pelicula,titulo_original,fecha FROM fechastitulos,titulopelicula WHERE fechastitulos.id_titulo=titulopelicula.id_pelicula and ".$columna."='" . $dato . "' ORDER BY fecha DESC LIMIT 10");
         while ($rows = $cons->fetch_assoc()) {
             
             ?>
